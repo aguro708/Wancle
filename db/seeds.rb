@@ -5,3 +5,68 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Genre.create!(
+  [
+    {
+      genre: 'スポーツ',
+
+    },
+    {
+      genre: '料理',
+
+    },
+    {
+      genre: 'エンタメ',
+
+    },
+    {
+      genre: '美容',
+
+    },
+    {
+      genre: '政治',
+
+    },
+    {
+      genre: '雑学',
+
+    },
+    {
+      genre: 'ファッション',
+
+    },
+    {
+      genre: 'グルメ',
+
+    },
+    {
+      genre: 'インテリア',
+
+    },
+    {
+      genre: 'スポット',
+
+    },
+    {
+      genre: '旅行',
+
+    },
+])
+
+User.create!(
+	[
+		{
+			name: 'sss',
+			writer: 'writer',
+			old: 10,
+			gender: '男',
+			email: 'a@a',
+			password: 'aaaaaa',
+		}])
+Post.create!(
+	[
+		{
+			content: '吉田正尚のトレーニング方法について',
+			genre_id: 1,
+			user_id: 1,
+		}])

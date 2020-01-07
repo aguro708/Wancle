@@ -1,0 +1,315 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Yu Gothic";
+}
+
+header{
+	height: 100px;
+	background-color: white;
+	border-bottom:solid 1px black;
+}
+
+.wancle{
+	float: left;
+	padding-left: 120px;
+	color: black;
+}
+
+.header-link{
+	float:left;
+	list-style:none;
+	margin-right:70px;
+	font-weight:700;
+	margin-top:20px;
+}
+
+.header-link a{
+	text-decoration:none;
+	color:black;
+}
+
+.home-image{
+	height:500px;
+	background-image: url("/assets/slide1.jpg");
+	background-size: cover;
+	background-position:0px 600px;
+	position:relative;
+}
+
+.home-image p a{
+	color:white;
+	text-decoration:none;
+	background-color:skyblue;
+	border-radius: 30px;
+	width:300px;
+	text-align:center;
+	height:100px;
+	line-height: 100px;
+	position:absolute;
+	top:220px;
+	left:100px;
+	font-size:30px;
+}
+
+.home-image p a:hover{
+	background-color:blue;
+}
+
+.top-site-description{
+	width:450px;
+	margin:50px 0 0 80px;
+}
+
+.top-site-description h2{
+	width:160px;
+	font-weight:bold;
+	border-bottom:solid 2px black;
+	margin-bottom:15px;
+}
+
+.top-site-description p{
+	letter-spacing: 0.1em;
+	line-height:200%;
+}
+
+footer{
+	height:80px;
+	text-align:center;
+	line-height: 80px;
+	border-top:solid 2px black;
+	background-color:silver;
+	margin-top:300px;
+	  clear: both;
+}
+
+.sign-up{
+	margin-left:400px;
+	margin-top:100px;
+}
+
+.sign-up .field{
+	margin-top:40px;
+}
+
+.genre-link{
+	text-decoration:none;
+	color:white;
+	text-align:center;
+	height:50px;
+	line-height:50px;
+}
+
+.genre-link:hover{
+	color:white;
+	text-decoration:none;
+	opacity:0.6;
+}
+
+.genre_1{
+	background-color:red;
+}
+
+.genre_2{
+	background-color:green;
+}
+
+.genre_3 {
+	background-color:gold;
+}
+.genre_4{
+	background-color:rgba(0,0,255,0.5);
+}
+.genre_5{
+	background-color: rgba(255,0,120,0.5);
+}
+.genre_6{
+	background-color: fuchsia;
+}
+.genre_7{
+	background-color: olive;
+}
+.genre_8{
+	background-color: purple;
+}
+.genre_9{
+	background-color: maroon;
+}
+.genre_10{
+	background-color:blue;
+}
+.genre_11{
+	background-color:darkorange;
+}
+.body{
+	margin-top:70px;
+}
+.post-roop a{
+	color:black;
+}
+.post-roop a:hover{
+	text-decoration:none;
+}
+
+.post-roop{
+	border-bottom:solid 1px #f2f2f2;
+}
+.post-roop:hover{
+	background-color:#f2f2f2;
+}
+
+.post-color-1{
+	border-left:solid 5px red;
+}
+.post-color-2{
+	border-left:solid 5px green;
+}
+.post-color-3{
+	border-left:solid 5px gold;
+}
+.post-color-4{
+	border-left:solid 5px rgba(0,0,255,0.5);
+}
+.post-color-5{
+	border-left:solid 5px rgba(255,0,120,0.5);
+}
+.post-color-6{
+	border-left:solid 5px fuchsia;
+}
+.post-color-7{
+	border-left:solid 5px olive;
+}
+.post-color-8{
+	border-left:solid 5px purple;
+}
+.post-color-9{
+	border-left:solid 5px maroon;
+}
+.post-color-10{
+	border-left:solid 5px blue;
+}
+.post-color-11{
+	border-left:solid 5px darkorange;
+}
+
+.item-index{
+	width:242px;
+	float:left;
+	margin-left:180px;
+	border:solid 1px silver;
+	margin-top:40px;
+	margin-bottom:40px;
+	border-radius: 5px;
+	box-shadow:0px 0px 10px;
+	text-align:left;
+	position:relative;
+}
+
+.item-index:hover{
+	box-shadow:none;
+}
+
+.item-index img{
+	border-radius: 5px 5px 0 0;
+}
+
+.item-content{
+	height:70px;
+}
+
+.user-name{
+	font-size:20px;
+	height:60px;
+	line-height:60px;
+	text-align:center;
+	margin-bottom:40px;
+}
+
+.item-createtime{
+	color:gray;
+	position:absolute;
+	bottom:0;
+	right:20px;
+}
+
+.btn-border {
+	display: inline-block;
+  border: 2px solid #9ec34b;
+  background-color:#FFF;
+  color:#9ec34b;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 3px 4.8px;
+  border-radius: 6px;
+  transition: .4s;
+  font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
+}
+
+.btn-border:hover {
+  background-color:#9ec34b;
+  border-color: #cbe585;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.btn-border2 {
+  display: inline-block;
+  border: 2px solid #FF0000;
+  color: #FF0000;
+  background-color:#FFF;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 3px 4.8px;
+  border-radius: 6px;
+  transition: .4s;
+    font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
+}
+
+.btn-border2:hover {
+  background-color:#FF0000;
+  border-color:orange;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.post-new{
+	margin-left:250px;
+}
+
+.post-new-content{
+	height:150px;
+	width:240px;
+	display:inline-block;
+	float:left;
+}
+
+.post-new-btn{
+	display:inline-block;
+	float:left;
+	margin-left:40px;
+	margin-top:100px;
+	width:80px;
+	height:50px;
+	text-align:center;
+	font-weight:bold;
+}
+

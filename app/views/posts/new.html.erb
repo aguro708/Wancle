@@ -1,0 +1,8 @@
+<div class="post-new">
+	<h2>あなたの読みたい記事を書いてみよう</h2><br>
+	<%= form_for @post, url:posts_path do |f| %>
+	   <%= f.collection_select :genre_id, @genres, :id, :genre, {include_blank: "ジャンル"},class: 'sample' %><br><br>
+	   <%= f.text_area :content,class: "post-new-content" %>
+	   <%= f.submit '投稿',class: "btn btn-success post-new-btn"  %>
+	<% end %>
+</div>

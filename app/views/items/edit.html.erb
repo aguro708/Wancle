@@ -1,0 +1,8 @@
+<%= form_for @item, url:post_item_path(post_id: @post.id, id: @item.id) do |f| %>
+<%= f.label :紹介文 %><br>
+<%= f.text_area :content %><br>
+<%= f.label :リンク %><br>
+<%= f.text_field :link %><br>
+<%= f.attachment_field :image %><br>
+<%= f.submit '投稿' %>
+<% end %>
