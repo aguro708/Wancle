@@ -26,11 +26,17 @@ class PostsController < ApplicationController
 
   def edit
     @post=Post.find(params[:id])
+    @genres=Genre.all
   end
 
   def update
     @post=Post.find(params[:id])
-    @post.update()
+    if @post.update(post_params)
+      redirect_to posts_path
+    else
+      @genres=Genre.all
+      render :edit
+    end
   end
 
   def destroy

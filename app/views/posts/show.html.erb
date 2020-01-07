@@ -1,2 +1,25 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="body">
+	<%= link_to "記事を載せる方はこちら",new_post_item_path(post_id: @post.id) %><br>
+	<% @post.items.each do |item| %>
+		<div class="item-index">
+			<a href="<%= item.link %>">
+				<%= attachment_image_tag item, :image,fallback: "", size:"240x150" %>
+				<p class="item-content">
+					<%= item.content %>
+				</p>
+			</a>
+			<p class="user-name">
+				<strong><%= item.user.name %></strong>
+			</p>
+			<p class="item-createtime">
+				<% if item.user==current_user %>
+							<%= link_to "編集",edit_post_item_path(post_id: @post.id, id: item.id),class: "btn-border" %>
+							<%= link_to "削除",post_item_path(post_id: @post.id,id: item.id),class: "btn-border2",method: :delete %>
+				<% else %>
+				<% end %>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<%= item.created_at.to_s(:datetime2_jp) %>
+			</p>
+		</div>
+	<% end %><br>
+</div>
