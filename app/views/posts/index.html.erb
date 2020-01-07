@@ -1,0 +1,68 @@
+<div class="body">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+				<% @genres.each do |genre| %>
+					<%= link_to genre.genre,genre_path(genre.id),class: "genre_#{genre.id} genre-link col-md-2" %>
+				<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 col-md-offset-1">
+				<h4>人気記事</h4>
+			</div>
+			<div class="col-md-8 col-md-offset-1">
+				<h2>新着</h2>
+				<% @posts.each do |post| %>
+				<div class="row">
+					<%= link_to post_path(post.id) do %>
+					<% if post.genre_id==1 %>
+					<div class="col-md-10 col-md-offset-1 post-roop post-color-1">
+					<% elsif post.genre_id==2 %>
+					<div class="col-md-10 col-md-offset-1 post-roop post-color-2">
+				    <% elsif post.genre_id==3 %>
+				    <div class="col-md-10 col-md-offset-1 post-roop post-color-3">
+				    <% elsif post.genre_id==4 %>
+				    <div class="col-md-10 col-md-offset-1 post-roop post-color-4">
+				    <% elsif post.genre_id==5 %>
+				    <div class="col-md-10 col-md-offset-1 post-roop post-color-5">
+				    <% elsif post.genre_id==6 %>
+				    <div class="col-md-10 col-md-offset-1 post-roop post-color-6">
+				    <% elsif post.genre_id==7 %>
+				    <div class="col-md-10 col-md-offset-1 post-roop post-color-7">
+				    <% elsif post.genre_id==8 %>
+				    <div class="col-md-10 col-md-offset-1 post-roop post-color-8">
+				    <% elsif post.genre_id==9 %>
+				    <div class="col-md-10 col-md-offset-1 post-roop post-color-9">
+				    <% elsif post.genre_id==10 %>
+				    <div class="col-md-10 col-md-offset-1 post-roop post-color-10">
+				    <% elsif post.genre_id==11 %>
+				    <div class="col-md-10 col-md-offset-1 post-roop post-color-11">
+				    <% else %>
+				    <div class="col-md-10 col-md-offset-1 post-roop post-color-12">
+				    <% end %>
+						<p>
+							<%= post.user.name %>
+						</p>
+						<p>
+							<%= post.content %>
+						</p>
+						<% if current_user==post.user %>
+						<p>
+						<%= link_to "編集",edit_post_path(post.id) %>
+						｜
+						<%= link_to "削除",post_path(post.id),method: :delete %>
+					</p>
+						<% else %>
+						<% end %>
+					</div>
+					<% end %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+
+	</div>
+</div>

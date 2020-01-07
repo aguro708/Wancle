@@ -1,0 +1,2 @@
+class Thema < ApplicationRecord
+end
