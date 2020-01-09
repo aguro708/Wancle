@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 	def show
 		@user=User.find(params[:id])
+		@posts=@user.posts.order("id DESC")
+		@items=@user.items.order("id DESC")
 	end
 	def edit
 		@user=User.find(params[:id])
@@ -10,6 +12,8 @@ class UsersController < ApplicationController
 		if @user.update(user_params)
 			redirect_to user_path(@user.id)
 		else
+			@posts=@user.posts.order("id DESC")
+			@items=@user.items.order("id DESC")
 			render :show
 		end
 	end
@@ -18,6 +22,8 @@ class UsersController < ApplicationController
 		if @user.destroy
 			redirect_to root_path
 		else
+			@posts=@user.posts.order("id DESC")
+			@items=@user.items.order("id DESC")
 			render :show
 		end
 	end

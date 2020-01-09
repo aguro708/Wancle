@@ -19,7 +19,7 @@
 		</h5>
 		<h4><%= @user.introduction %></h4>
 	</div>
-	<% @user.posts.each do |post| %>
+	<% @posts.each do |post| %>
 				<div class="row">
 					<%= link_to post_path(post.id) do %>
 					<% if post.genre_id==1 %>
@@ -67,7 +67,7 @@
 				</div>
 	<% end %>
 	<div class="user-item-index">
-	<% @user.items.each do |item| %>
+	<% @items.each do |item| %>
 		<div class="item-index">
 			<a href="<%= item.link %>">
 				<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"240x150" %>

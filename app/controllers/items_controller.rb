@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 	def index
-		@items=Item.all
+		@items=Item.order("id DESC")
+		@genres=Genre.all
 	end
 	def new
 		@item=Item.new
@@ -38,6 +39,10 @@ class ItemsController < ApplicationController
 		else
 			render "posts/show"
 		end
+	end
+	def favorite
+    @all_ranks = Item.find(Favorite.group(:item_id).order('count(item_id) desc').pluck(:item_id))
+    @genres=Genre.all
 	end
 	private
 	def item_params

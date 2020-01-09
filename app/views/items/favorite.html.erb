@@ -9,9 +9,9 @@
 		</div>
 	</div>
 </div>
-	<h2>新着順</h2>
-	<%= link_to "人気順",item_favorites_order_path %>
-	<% @items.each do |item| %>
+	<h2>人気順</h2>
+	<%= link_to "新着順",items_path %>
+	<% @all_ranks.each do |item| %>
 		<div class="item-index">
 			<a href="<%= item.link %>">
 				<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"240x150" %>

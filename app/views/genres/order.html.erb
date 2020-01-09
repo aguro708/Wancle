@@ -10,7 +10,7 @@
 	</div>
 </div>
 	<h2>新着順</h2>
-	<%= link_to "人気順",item_favorites_order_path %>
+	<%= link_to "人気順",genre_favorites_order_path(@genre.id) %>
 	<% @items.each do |item| %>
 		<div class="item-index">
 			<a href="<%= item.link %>">

@@ -9,6 +9,7 @@
 			</div>
 		</div>
 				<h2>新着</h2>
+				<%= link_to "人気順",genre_likes_order_path(@genre.id) %>
 				<% @posts.each do |post| %>
 				<div class="row">
 					<% if post.genre_id==1 %>

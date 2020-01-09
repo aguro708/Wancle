@@ -8,9 +8,9 @@
 				</div>
 			</div>
 		</div>
-				<h2>新着</h2>
-				<%= link_to "人気順",post_likes_order_path %>
-				<% @posts.each do |post| %>
+		        <h2>人気投稿</h2>
+		        <%= link_to "新着順",posts_path %>
+				<% @all_ranks.each do |post| %>
 				<div class="row">
 					<% if post.genre_id==1 %>
 					<div class="col-md-10 col-md-offset-1 post-roop post-color-1">
@@ -55,4 +55,5 @@
 					</div>
 				</div>
 				<% end %>
+
 	</div>

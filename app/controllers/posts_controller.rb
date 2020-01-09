@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts=Post.all
+    @posts=Post.order("id DESC")
     @genres=Genre.all
   end
 
@@ -44,6 +44,11 @@ class PostsController < ApplicationController
     if @post.destroy
       redirect_to posts_path
     end
+  end
+
+  def like
+    @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+    @genres=Genre.all
   end
 
   def search
