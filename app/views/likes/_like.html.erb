@@ -1,0 +1,20 @@
+<p class="post-datetime">
+	<% if current_user.already_liked?(post) %>
+	<%= link_to post_likes_path(post_id: post.id),method: :delete,remote: true do %>
+	<span class="pink-all"><i class="fas fa-heart"></i></span>
+	<%= post.likes.count %>&nbsp;&nbsp;&nbsp;&nbsp;
+	<% end %>
+	<% else %>
+	<%= link_to post_likes_path(post_id: post.id),method: :post,remote: true do %>
+	<span class="pink-border"><i class="far fa-heart"></i></span>
+	<%= post.likes.count %>&nbsp;&nbsp;&nbsp;&nbsp;
+	<% end %>
+	<% end %>
+	<%= post.created_at.to_s(:datetime_jp) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<% if current_user==post.user %>
+	<%= link_to "編集",edit_post_path(post.id) %>
+	｜
+	<%= link_to "削除",post_path(post.id),method: :delete %>
+	<% else %>
+	<% end %>
+</p>
