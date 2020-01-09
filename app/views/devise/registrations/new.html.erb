@@ -19,7 +19,8 @@
   </div>
   <div class="field">
     <%= f.label :writerかuser %>
-    <%= f.text_field :writer, autofocus: true %>
+    <%= f.radio_button :writer, "writer", {:checked => true} %> writer
+    <%= f.radio_button :writer, "user" %> user
   </div>
   <div class="field">
     <%= f.label :email %>
