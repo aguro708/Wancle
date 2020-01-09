@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'search' => 'posts#search'
   get 'tops/home'
   get 'tops/about'
+  post "items/:item_id/favorites" => "favorites#create",as: "item_favorites"
+  delete "items/:item_id/favorites" => "favorites#destroy"
   root "tops#home"
   devise_for :users
   resources :posts do
