@@ -9,6 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
+  <body>
   <header>
     <div class="wancle">
       <h1>Wancle</h1>
@@ -21,6 +23,9 @@
       </li>
       <li class="header-link">
         <%= link_to "投稿一覧", posts_path %>
+      </li>
+      <li class="header-link">
+        <%= link_to "記事一覧",items_path %>
       </li>
       <li class="header-link">
         <%= link_to "マイページ", user_path(current_user) %>
@@ -48,10 +53,16 @@
   </li>
     </ul>
   </header>
-  <body>
+    <div class="body">
     <%= yield %>
-  </body>
+    <span id="back">
+      <a href="#">
+        <img src="/assets/pagetop2.jpg" alt="">
+      </a>
+    </span>
+  </div>
   <footer>
     Copyright © 2019 Wancle
   </footer>
+  </body>
 </html>

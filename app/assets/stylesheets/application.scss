@@ -95,6 +95,11 @@ header{
 	line-height:200%;
 }
 
+.body{
+	min-height: 200px;
+	margin-top:70px;
+}
+
 footer{
 	height:80px;
 	text-align:center;
@@ -163,9 +168,6 @@ footer{
 .genre_11{
 	background-color:darkorange;
 }
-.body{
-	margin-top:70px;
-}
 
 .post-datetime,.post-datetime a{
 	color:gray;
@@ -176,22 +178,27 @@ footer{
 	padding-right:30px;
 }
 
-.post-user-name,.post-content{
+.post-user-name a,.post-content{
 	color:black;
 	font-size:15px;
+}
+
+.post-user-name a:hover{
+	color:blue;
+	text-decoration:none;
 }
 
 .post-roop{
 	font-size:15px;
 }
 .post-user-name{
-	margin-bottom:20px;
 	border-radius:50%;
 }
 
 .post-content{
-	margin-bottom:20px;
-	margin-left:73px;
+	padding-bottom:20px;
+	padding-left:73px;
+	padding-top:20px;
 	width:580px;
 }
 
@@ -200,14 +207,15 @@ footer{
 	border:1px solid silver;
 }
 
-.post-roop a:hover{
-	text-decoration:none;
-}
 
 .post-roop{
 	border-bottom:solid 1px #f2f2f2;
 	border-right:solid 1px #f2f2f2;
 	padding:20px 0 20px 20px;
+}
+
+.post-roop a:hover{
+	text-decoration:none;
 }
 
 .post-roop:first-of-type{
@@ -298,17 +306,17 @@ footer{
 	color:gray;
 	position:absolute;
 	bottom:0;
-	right:20px;
+	right:10px;
 }
 
 .btn-border {
-	display: inline-block;
+  display: inline-block;
   border: 2px solid #9ec34b;
   background-color:#FFF;
   color:#9ec34b;
   text-decoration: none;
   font-weight: bold;
-  padding: 3px 4.8px;
+  padding: 2px 3.2px;
   border-radius: 6px;
   transition: .4s;
   font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
@@ -328,7 +336,7 @@ footer{
   background-color:#FFF;
   text-decoration: none;
   font-weight: bold;
-  padding: 3px 4.8px;
+  padding: 2px 3.2px;
   border-radius: 6px;
   transition: .4s;
   font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
@@ -493,10 +501,23 @@ footer{
 
 .black{
 	color:black;
-	margin-right:8px;
+	margin-right:10px;
 }
 
 .item-createtime a{
 	text-decoration:none;
 }
+
+#back {
+  position: fixed;
+  right: 30px;
+  bottom: 80px;
+}
+
+#back img {
+  width: 60px;
+  height:60px;
+  border-radius:50%;
+}
+
 

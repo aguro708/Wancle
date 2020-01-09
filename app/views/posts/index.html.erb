@@ -1,5 +1,4 @@
-<div class="body">
-	<div class="container">
+<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row">
@@ -12,7 +11,6 @@
 				<h2>新着</h2>
 				<% @posts.each do |post| %>
 				<div class="row">
-					<%= link_to post_path(post.id) do %>
 					<% if post.genre_id==1 %>
 					<div class="col-md-10 col-md-offset-1 post-roop post-color-1">
 					<% elsif post.genre_id==2 %>
@@ -39,20 +37,22 @@
 				    <div class="col-md-10 col-md-offset-1 post-roop post-color-12">
 				    <% end %>
 						<p class="post-user-name">
-							<%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<%= link_to user_path(post.user.id) do %>
+							<%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<%= post.user.name %>
-
+						    <% end %>
 						</p>
+						<%= link_to post_path(post.id) do %>
 						<p class="post-content">
 							<%= post.content %>
 						</p>
-							<div id="like-<%= post.id %>">
+						<div id="like-<%= post.id %>">
 							<%= render partial: "likes/like", locals: { post: post } %>
 						</div>
+						<% end %>
 					</div>
-					<% end %>
 				</div>
 				<% end %>
 
 	</div>
-</div>

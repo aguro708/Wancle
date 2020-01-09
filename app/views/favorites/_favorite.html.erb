@@ -7,17 +7,14 @@
 		<% if current_user.already_favorited?(item) %>
 		<%= link_to item_favorites_path(item_id: item.id),method: :delete,remote: true do %>
 		<span class="yellow"><i class="fas fa-star"></i></span>
-		<span class="black">
-			<%= item.favorites.count %>
-		</span>
 		<% end %>
 		<% else %>
 		<%= link_to item_favorites_path(item_id: item.id),method: :post,remote: true do %>
 		<span class="yellow"><i class="far fa-star"></i></span>
+		<% end %>
+		<% end %>
 		<span class="black">
 			<%= item.favorites.count %>
 		</span>
-		<% end %>
-		<% end %>
 		<%= item.created_at.to_s(:datetime2_jp) %>
 	</p>
