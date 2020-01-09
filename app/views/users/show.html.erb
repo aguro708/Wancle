@@ -1,16 +1,25 @@
-<div class="body">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-				<% @genres.each do |genre| %>
-					<%= link_to genre.genre,genre_path(genre.id),class: "genre_#{genre.id} genre-link col-md-2" %>
-				<% end %>
-				</div>
-			</div>
+	<div class="profile-left">
+		<div class="profile-image">
+		    <%= attachment_image_tag @user, :profile_image,fallback: "no_image.jpg", size:"120x120" %>
 		</div>
-				<h2>新着</h2>
-				<% @posts.each do |post| %>
+		<% if current_user==@user %>
+		    <p>
+		    	<%= link_to "プロフィール編集",edit_user_path(@user.id),class: "profile-edit" %>
+		    </p>
+		<% end %>
+	</div>
+	<div class="profile">
+		<h4><%= @user.name %></h4>
+		<h5 class="profile-right"><%= @user.old %>歳&nbsp;&nbsp;&nbsp;<%= @user.gender %>性&nbsp;&nbsp;&nbsp;
+			<% if @user.writer == "writer" %>
+			<span class="profile-writer"><%= @user.writer %></span>
+			<% else %>
+			<span class="profile-user"><%= @user.writer %></span>
+			<% end %>
+		</h5>
+		<h4><%= @user.introduction %></h4>
+	</div>
+	<% @user.posts.each do |post| %>
 				<div class="row">
 					<%= link_to post_path(post.id) do %>
 					<% if post.genre_id==1 %>
@@ -59,6 +68,27 @@
 					<% end %>
 				</div>
 				<% end %>
-
+	<div class="user-item-index">
+	<% @user.items.each do |item| %>
+		<div class="item-index">
+			<a href="<%= item.link %>">
+				<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"240x150" %>
+				<p class="item-content">
+					<%= item.content %>
+				</p>
+			</a>
+			<p class="user-name">
+				<strong><%= link_to item.user.name,user_path(item.user.id) %></strong>
+			</p>
+			<p class="item-createtime">
+				<% if item.user==current_user %>
+							<%= link_to "編集",edit_post_item_path(post_id: item.post.id, id: item.id),class: "btn-border" %>
+							<%= link_to "削除",post_item_path(post_id: item.post.id,id: item.id),class: "btn-border2",method: :delete %>
+				<% else %>
+				<% end %>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<%= item.created_at.to_s(:datetime2_jp) %>
+			</p>
+		</div>
+	<% end %>
 	</div>
-</div>
