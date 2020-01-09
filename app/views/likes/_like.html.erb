@@ -1,12 +1,12 @@
 <p class="post-datetime">
 	<% if current_user.already_liked?(post) %>
 	<%= link_to post_likes_path(post_id: post.id),method: :delete,remote: true do %>
-	<span class="pink-all"><i class="fas fa-heart"></i></span>
+	<span class="pink"><i class="fas fa-heart"></i></span>
 	<%= post.likes.count %>&nbsp;&nbsp;&nbsp;&nbsp;
 	<% end %>
 	<% else %>
 	<%= link_to post_likes_path(post_id: post.id),method: :post,remote: true do %>
-	<span class="pink-border"><i class="far fa-heart"></i></span>
+	<span class="pink"><i class="far fa-heart"></i></span>
 	<%= post.likes.count %>&nbsp;&nbsp;&nbsp;&nbsp;
 	<% end %>
 	<% end %>

@@ -74,15 +74,9 @@
 			<p class="user-name">
 				<strong><%= link_to item.user.name,user_path(item.user.id) %></strong>
 			</p>
-			<p class="item-createtime">
-				<% if item.user==current_user %>
-							<%= link_to "編集",edit_post_item_path(post_id: item.post.id, id: item.id),class: "btn-border" %>
-							<%= link_to "削除",post_item_path(post_id: item.post.id,id: item.id),class: "btn-border2",method: :delete %>
-				<% else %>
-				<% end %>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<%= item.created_at.to_s(:datetime2_jp) %>
-			</p>
+			<div id="favorite-<%= item.id %>">
+				<%= render partial: "favorites/favorite", locals: { item: item } %>
+			</div>
 		</div>
 	<% end %>
 	</div>
