@@ -55,15 +55,9 @@
 						<p class="post-content">
 							<%= post.content %>
 						</p>
-						<p class="post-datetime">
-						   <%= post.created_at.to_s(:datetime_jp) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<% if current_user==post.user %>
-						<%= link_to "編集",edit_post_path(post.id) %>
-						｜
-						<%= link_to "削除",post_path(post.id),method: :delete %>
-						<% else %>
-						<% end %>
-						</p>
+						<div id="like-<%= post.id %>">
+							<%= render partial: "likes/like", locals: { post: post } %>
+						</div>
 					</div>
 					<% end %>
 				</div>

@@ -67,5 +67,5 @@ gem 'bootstrap-sass','~> 3.4.1'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "kaminari",'~> 1.1.1'
-gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 5.4.1'
 gem 'seed-fu'

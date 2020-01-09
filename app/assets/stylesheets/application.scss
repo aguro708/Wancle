@@ -15,6 +15,9 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import 'font-awesome-sprockets';
+@import 'font-awesome';
+
 
   * {
   margin: 0;
@@ -475,4 +478,14 @@ footer{
 
 .margin-bottom{
 	margin-bottom:30px;
+}
+
+.pink-all{
+	color:red;
+	font-size:18px;
+}
+
+.pink-border{
+	color:red;
+	font-size:18px;
 }

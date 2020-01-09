@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :posts do
   	resources :items,only:[:new,:create,:edit,:update,:destroy]
+  	resource :likes, only: [:create, :destroy]
   end
   resources :users,only:[:show,:edit,:update,:destroy]
   resources :genres,only:[:show]
