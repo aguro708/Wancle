@@ -49,7 +49,7 @@ header{
 }
 
 .wancle{
-	padding-left: 120px;
+	padding-left: 60px;
 	float:left;
 	color: black;
 }
@@ -106,17 +106,17 @@ header{
 	border:1px solid #eae6dc;
 	border-right:none;
 	float:left;
+	padding-left:5px;
 }
 
 .search-color{
 	height:32px;
-	border:1px solid #eae6dc;
+	border:1px solid rgb(150, 16, 16);
 	border-left:none;
 	border-radius:0 5px 5px 0;
-	background-color:white;
-	box-shadow: inset 0 1px #ccc;
 	float:left;
-	color:rgb(150, 16, 16);
+	background-color:rgb(150, 16, 16);
+	color:#ffffff;
 	width:30px;
 }
 
@@ -171,6 +171,7 @@ header{
 	padding-bottom:50px;
 	width:960px;
 	margin: 0 auto;
+	min-height: 700px;
 }
 
 body{
@@ -189,18 +190,27 @@ footer{
 	clear: both;
 }
 
-.sign-up,.sign-in{
+.sign-up,.sign-in,.user-edit{
 	width:480px;
 	margin:0 auto;
 }
 
-.sign-up-title,.sign-in-title{
+.post-new,.item-new{
+	width:640px;
+	margin:0 auto;
+}
+
+.sign-up-title,.sign-in-title,.profile-edit-title,.post-new-title,.item-new-title{
 	margin-bottom:20px;
 	font-size:22px;
 	font-weight:bold;
 }
 
-.sign-up-inset,.sign-in-inset{
+.post-new-title,.item-new-title{
+	font-size:28px;
+}
+
+.sign-up-inset,.sign-in-inset,.profile-edit-all,.post-new-inset,.item-new-inset{
 	padding:32px 80px;
 	border-radius:16px;
 	background-color:white;
@@ -234,11 +244,15 @@ footer{
 	margin-right:25px;
 }
 
-.sign-up-btn-line,.sign-in-btn-line{
+.sign-up-btn-line,.sign-in-btn-line,.profile-btn-line,.user-destroy-line,.post-new-btn-line,.item-new-btn-line{
 	text-align:center;
 }
 
-.sign-up-btn,.sign-in-btn{
+.user-destroy-line{
+	margin-top:30px;
+}
+
+.sign-up-btn,.sign-in-btn,.profile-btn,.post-new-btn,.item-new-btn{
 	background-color:rgb(150, 16, 16);
 	color:white;
 	height:48px;
@@ -358,8 +372,6 @@ footer{
 	width:100%;
 }
 
-
-
 .post-padding-top{
 	clear:both;
 }
@@ -410,7 +422,6 @@ footer{
 	border-left:solid 5px darkorange;
 }
 
-
 .item-index{
 	width:228px;
 	float:left;
@@ -420,6 +431,7 @@ footer{
 	border-radius: 12px 12px;
 	text-align:left;
 	background-color:white;
+	box-shadow: 0 0 12px #eae6dc;
 }
 
 .item-index:nth-of-type(4n+1){
@@ -497,36 +509,6 @@ footer{
   text-decoration: none;
 }
 
-.post-new,.item-new{
-	margin-left:250px;
-}
-
-.post-new-content,.item-new-link{
-	display:inline-block;
-	float:left;
-	width:240px;
-	height:150px;
-}
-
-.item-new-content,.introduction{
-	width:240px;
-}
-
-.post-new-btn{
-	display:inline-block;
-	float:left;
-	margin-left:40px;
-	margin-top:100px;
-	width:80px;
-	height:50px;
-	text-align:center;
-	font-weight:bold;
-}
-
-.introduction{
-	height:150px;
-}
-
 .profile-image{
 	margin:0 auto;
 	border-radius:50%;
@@ -573,15 +555,6 @@ footer{
 	border-color:blue;
 }
 
-.profile-edit-all{
-	margin-left:100px;
-	margin-top:50px;
-}
-
-.profile-edit-parts{
-	margin-bottom:15px;
-}
-
 .profile-writer{
 	color:green;
 	border:solid 2px green;
@@ -602,21 +575,30 @@ footer{
 	margin-bottom:15px;
 }
 
+.introduction,.post-new-content,.item-new-content{
+	padding-top:10px;
+	height:150px;
+}
+
 .user-item-index,.user-post-index{
 	margin-top:100px;
 }
 
-.user-destroy{
+.user-destroy-btn{
+	background-color:rgba(255,0,0,1);
+	display:block;
 	color:white;
-	background-color:rgba(255,0,0,0.7);
-	border-radius:5px 5px;
-	padding:8px 13px;
+	height:48px;
+	line-height:48px;
+	border-radius:8px;
+	width:80%;
+	margin:0 auto;
 }
 
-.user-destroy:hover{
+.user-destroy-btn:hover{
 	text-decoration:none;
 	color:white;
-	background-color:rgba(255,0,0,1);
+	background-color:rgba(255,0,0,0.8);
 }
 
 .margin-bottom{
@@ -661,6 +643,20 @@ footer{
 
 .post-link-all{
 	display:block;
+}
+
+textarea,input{
+	background-color:#f7f7f7;
+}
+
+textarea:focus, input:focus, button:focus{
+	outline:0;
+	border: 1px solid rgb(150, 16, 16);
+	background-color:#fff;
+}
+
+textarea:hover, input:hover{
+	border: 1px solid rgb(150, 16, 16);
 }
 
 
