@@ -13,47 +13,51 @@
   <body>
   <header>
     <div class="wancle">
-      <h1>Wancle</h1>
+      <span class="float font">Wancle</span>
+      <span class="float">
+      <img src="/assets/記事アイコン5.jpeg" alt="">
+      </span>
       <p>〜あなたが欲しい記事を〜</p>
     </div>
     <% if user_signed_in? %>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="header-link">
-        <%= link_to "新規投稿", new_post_path %>
-      </li>
-      <li class="header-link">
-        <%= link_to "投稿一覧", posts_path %>
-      </li>
-      <li class="header-link">
-        <%= link_to "記事一覧",items_path %>
-      </li>
-      <li class="header-link">
-        <%= link_to "マイページ", user_path(current_user) %>
-      </li>
-      <li class="header-link">
-        <%= link_to "ログアウト",destroy_user_session_path,method: :delete %>
-      </li>
+      <ul class="wancle-right">
+        <li class="header-link">
+          <%= link_to "新規投稿", new_post_path %>
+        </li>
+        <li class="header-link">
+          <%= link_to "投稿一覧", posts_path %>
+        </li>
+        <li class="header-link">
+          <%= link_to "記事一覧",items_path %>
+        </li>
+        <li class="header-link">
+          <%= link_to "マイページ", user_path(current_user) %>
+        </li>
+        <li class="header-link">
+          <%= link_to "ログアウト",destroy_user_session_path,method: :delete %>
+        </li>
     <% else %>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="header-link">
-        <%= link_to "Wancleについて", tops_about_path %>
-      </li>
-      <li class="header-link">
-        <%= link_to "アカウント作成", new_user_registration_path %>
-      </li>
-      <li class="header-link">
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
+      <ul class="wancle-right">
+        <li class="header-link">
+          <%= link_to "Wancleについて", tops_about_path %>
+        </li>
+        <li class="header-link">
+          <%= link_to "アカウント作成", new_user_registration_path %>
+        </li>
+        <li class="header-link">
+          <%= link_to "ログイン", new_user_session_path %>
+        </li>
     <% end %>
-    <li class="header-link">
-      <%= form_tag(search_path, :method=>'get')do %>
-        <%= text_field_tag :search %>
-        <%= submit_tag 'Search'%>
-      <% end %>
-  </li>
-    </ul>
+        <li class="header-link">
+          <%= form_tag(search_path, :method=>'get') do %>
+          <%= text_field_tag :search,"",class: "search-radius",:placeholder => "キーワードから探す" %>
+          <%= button_tag :type => "submit",class: "search-color" do %>
+          <i class="fas fa-search"></i>
+          <% end %>
+          <% end %>
+        </li>
+      </ul>
   </header>
-    <div class="body">
     <%= yield %>
     <span id="back">
       <a href="#">

@@ -1,4 +1,5 @@
-	<p class="item-createtime">
+<div class="item-createtime">
+	<span>
 		<% if item.user==current_user %>
 		<%= link_to "編集",edit_post_item_path(post_id: item.post.id, id: item.id),class: "btn-border" %>
 		<%= link_to "削除",post_item_path(post_id: item.post.id,id: item.id),class: "btn-border2",method: :delete %>
@@ -17,4 +18,5 @@
 			<%= item.favorites.count %>
 		</span>
 		<%= item.created_at.to_s(:datetime2_jp) %>
-	</p>
+	</span>
+</div>

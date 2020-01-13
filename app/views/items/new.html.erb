@@ -1,10 +1,11 @@
-<div class="item-new">
-	<%= form_for @item, url:post_items_path(post_id: @post.id) do |f| %>
-		<%= f.label :紹介文 %><br>
-		<%= f.text_area :content,class: "item-new-content" %><br>
-		<%= f.label :リンク %><br>
-		<%= f.text_field :link,class: "item-new-link" %><br>
-		<%= f.attachment_field :image %><br>
-		<%= f.submit '投稿',class: "btn btn-success" %>
-	<% end %>
+<div class="body">
+	<div class="item-new">
+		<h2>あなたのおすすめ記事を紹介しよう</h2><br>
+		<%= form_for @item, url:post_items_path(post_id: @post.id) do |f| %>
+		    <%= f.attachment_field :image %><br>
+			<%= f.text_field :link,class: "item-new-content",:placeholder => "リンク先URL" %><br><br>
+			<%= f.text_area :content,class: "item-new-link",:placeholder => "紹介文" %>
+			<%= f.submit '投稿',class: "btn btn-success post-new-btn" %>
+		<% end %>
+	</div>
 </div>

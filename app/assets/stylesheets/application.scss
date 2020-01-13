@@ -27,36 +27,107 @@
 }
 
 header{
-	height: 100px;
-	background-color: white;
-	border-bottom:solid 1px black;
+	height: 75px;
+	background-color:white;
+	width:100%;
+	position:fixed;
+	top:0px;
+	left:0px;
+}
+
+.float{
+	float:left;
+}
+
+.font{
+	font-size:36px;
+}
+
+.float img{
+	padding-left:10px;
+	padding-top:8px;
 }
 
 .wancle{
-	float: left;
 	padding-left: 120px;
+	float:left;
 	color: black;
+}
+
+.wancle p{
+	clear:both;
+	font-size:12px;
+}
+
+.wancle-right{
+	float:right;
 }
 
 .header-link{
 	float:left;
 	list-style:none;
-	margin-right:70px;
-	font-weight:700;
-	margin-top:20px;
+	margin-top:30px;
+	padding: 0 15px;
+	height:30px;
 }
 
 .header-link a{
 	text-decoration:none;
-	color:black;
+	font-size:13px;
+	font-family: 'arial black';
+	color:#555;
+	position: relative;
+    display: inline-block;
+    line-height:30px;
+}
+
+.header-link a::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: rgb(150, 16, 16);
+  transform: scale(0, 1);
+  transform-origin: center top;
+  transition: transform .3s;
+}
+
+.header-link a:hover::after {
+  transform: scale(1, 1);
+}
+
+.search-radius{
+	border-radius:5px 0 0 5px;
+	box-shadow: inset 1px 1px #ccc;
+	height:32px;
+	width:170px;
+	border:1px solid #eae6dc;
+	border-right:none;
+	float:left;
+}
+
+.search-color{
+	height:32px;
+	border:1px solid #eae6dc;
+	border-left:none;
+	border-radius:0 5px 5px 0;
+	background-color:white;
+	box-shadow: inset 0 1px #ccc;
+	float:left;
+	color:rgb(150, 16, 16);
+	width:30px;
 }
 
 .home-image{
-	height:500px;
-	background-image: url("/assets/slide1.jpg");
-	background-size: cover;
-	background-position:0px 600px;
-	position:relative;
+	background-image:url(/assets/slide1.jpg);
+	background-repeat: no-repeat;
+	height:590px;
+	width:100%;
+	margin-top:75px;
+	background-size:cover;
+	background-position:center bottom;
 }
 
 .home-image p a{
@@ -96,35 +167,106 @@ header{
 }
 
 .body{
-	min-height: 200px;
-	margin-top:70px;
+	padding-top:150px;
+	padding-bottom:50px;
+	width:960px;
+	margin: 0 auto;
+}
+
+body{
+	background-color:#f7f7f7;
+	margin: 0 auto;
 }
 
 footer{
 	height:80px;
+	width:100%;
 	text-align:center;
 	line-height: 80px;
-	border-top:solid 2px black;
-	background-color:silver;
-	margin-top:300px;
+	color:white;
+	background-color:#8c2a2a;
+	margin-top:50px;
 	clear: both;
 }
 
-.sign-up{
-	margin-left:400px;
-	margin-top:100px;
+.sign-up,.sign-in{
+	width:480px;
+	margin:0 auto;
 }
 
-.sign-up .field{
-	margin-top:40px;
+.sign-up-title,.sign-in-title{
+	margin-bottom:20px;
+	font-size:22px;
+	font-weight:bold;
+}
+
+.sign-up-inset,.sign-in-inset{
+	padding:32px 80px;
+	border-radius:16px;
+	background-color:white;
+	box-shadow: inset 0 0 5px #eae6dc;
+}
+
+.field{
+	margin-bottom:40px;
+}
+
+.field-tag{
+	margin-bottom:8px;
+	font-size:17px;
+	font-weight:bold;
+}
+
+.field-field{
+	width:100%;
+	padding:8px;
+	border-radius:8px;
+	border: 1px solid #eae6dc;
+	font-size:16px;
+}
+
+.writer-radio,.gender-radio{
+	text-align:center;
+	font-size:16px;
+}
+
+.writer-radio-margin{
+	margin-right:25px;
+}
+
+.sign-up-btn-line,.sign-in-btn-line{
+	text-align:center;
+}
+
+.sign-up-btn,.sign-in-btn{
+	background-color:rgb(150, 16, 16);
+	color:white;
+	height:48px;
+	line-height:48px;
+	padding:0 80px;
+	border-radius:8px;
+}
+
+.gender-radio-margin{
+	margin-right:39px;
 }
 
 .genre-link{
 	text-decoration:none;
 	color:white;
 	text-align:center;
-	height:50px;
-	line-height:50px;
+	height:45px;
+	line-height:45px;
+	display:block;
+	float:left;
+	width:20%;
+	font-size:12px;
+}
+
+.genre-link1{
+	width:85%;
+	margin:0 auto;
+	overflow:auto;
 }
 
 .genre-link:hover{
@@ -190,6 +332,7 @@ footer{
 
 .post-roop{
 	font-size:15px;
+	background-color:white;
 }
 .post-user-name{
 	border-radius:50%;
@@ -212,6 +355,13 @@ footer{
 	border-bottom:solid 1px #f2f2f2;
 	border-right:solid 1px #f2f2f2;
 	padding:20px 0 20px 20px;
+	width:100%;
+}
+
+
+
+.post-padding-top{
+	clear:both;
 }
 
 .post-roop a:hover{
@@ -260,21 +410,21 @@ footer{
 	border-left:solid 5px darkorange;
 }
 
+
 .item-index{
-	width:242px;
+	width:228px;
 	float:left;
-	margin-left:180px;
-	border:solid 1px silver;
+	margin-left:16px;
 	margin-top:40px;
 	margin-bottom:40px;
-	border-radius: 5px;
-	box-shadow:0px 0px 10px;
+	border-radius: 12px 12px;
 	text-align:left;
-	position:relative;
+	background-color:white;
 }
 
-.item-index:first-of-type{
+.item-index:nth-of-type(4n+1){
 	clear:both;
+	margin-left:0;
 }
 
 .item-index:hover{
@@ -282,31 +432,29 @@ footer{
 }
 
 .item-index img{
-	border-radius: 5px 5px 0 0;
-	border-bottom:1px solid silver;
+	border-radius: 12px 12px 0 0;
 }
 
 .item-content{
-	height:70px;
+	height:60px;
 }
 
 .user-name{
-	font-size:20px;
-	height:60px;
-	line-height:60px;
+	font-size:13px;
+	height:23px;
 	text-align:center;
-	margin-bottom:40px;
 }
 
 .user-name a{
 	color:black;
+	line-height:20px;
 }
 
 .item-createtime{
 	color:gray;
-	position:absolute;
-	bottom:0;
-	right:10px;
+	height:35px;
+	text-align:right;
+	margin-right:10px;
 }
 
 .btn-border {
@@ -349,15 +497,19 @@ footer{
   text-decoration: none;
 }
 
-.post-new{
+.post-new,.item-new{
 	margin-left:250px;
 }
 
-.post-new-content{
-	height:150px;
-	width:240px;
+.post-new-content,.item-new-link{
 	display:inline-block;
 	float:left;
+	width:240px;
+	height:150px;
+}
+
+.item-new-content,.introduction{
+	width:240px;
 }
 
 .post-new-btn{
@@ -371,32 +523,24 @@ footer{
 	font-weight:bold;
 }
 
-.item-new-content{
+.introduction{
 	height:150px;
-	width:240px;
-}
-
-.item-new-link{
-	width:240px;
-	margin-bottom:40px;
-}
-
-.item-new{
-	margin-left:400px;
-	margin-top:80px;
 }
 
 .profile-image{
 	margin:0 auto;
 	border-radius:50%;
-	margin-top:30px;
 	margin-bottom:25px;
 	width:120px;
 }
 
+.profile-content{
+	width:80%;
+	margin:0 auto;
+}
+
 .profile-left{
 	float:left;
-	margin-left:300px;
 }
 
 .profile-image img{
@@ -407,7 +551,7 @@ footer{
 .profile {
 	float:left;
 	margin-left:100px;
-	margin-top:30px;
+	margin-top:10px;
 	width:400px;
 	margin-bottom:80px;
 }
@@ -427,11 +571,6 @@ footer{
 	background-color:blue;
 	color:white;
 	border-color:blue;
-}
-
-.introduction{
-	height:150px;
-	width:240px;
 }
 
 .profile-edit-all{
@@ -463,11 +602,7 @@ footer{
 	margin-bottom:15px;
 }
 
-.user-item-index{
-	margin-top:100px;
-}
-
-.user-post-index{
+.user-item-index,.user-post-index{
 	margin-top:100px;
 }
 
@@ -518,6 +653,14 @@ footer{
   width: 60px;
   height:60px;
   border-radius:50%;
+}
+
+.genre-link:last-of-type{
+	margin-bottom:50px;
+}
+
+.post-link-all{
+	display:block;
 }
 
 
