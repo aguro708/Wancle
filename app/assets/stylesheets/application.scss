@@ -98,28 +98,6 @@ header{
   transform: scale(1, 1);
 }
 
-.search-radius{
-	border-radius:5px 0 0 5px;
-	box-shadow: inset 1px 1px #ccc;
-	height:32px;
-	width:170px;
-	border:1px solid #eae6dc;
-	border-right:none;
-	float:left;
-	padding-left:5px;
-}
-
-.search-color{
-	height:32px;
-	border:1px solid rgb(150, 16, 16);
-	border-left:none;
-	border-radius:0 5px 5px 0;
-	float:left;
-	background-color:rgb(150, 16, 16);
-	color:#ffffff;
-	width:30px;
-}
-
 .home-image{
 	background-image:url(/assets/slide1.jpg);
 	background-repeat: no-repeat;
@@ -628,7 +606,7 @@ footer{
 #back {
   position: fixed;
   right: 30px;
-  bottom: 80px;
+  bottom: 85px;
 }
 
 #back img {
@@ -649,14 +627,57 @@ textarea,input{
 	background-color:#f7f7f7;
 }
 
-textarea:focus, input:focus, button:focus{
+textarea:focus, input:focus{
 	outline:0;
 	border: 1px solid rgb(150, 16, 16);
 	background-color:#fff;
 }
 
+select:focus,button:focus{
+	outline:0;
+}
+
 textarea:hover, input:hover{
 	border: 1px solid rgb(150, 16, 16);
+}
+
+.search-radius{
+	border-radius:5px 0 0 5px;
+	border: 1px solid #ccc;
+	height:32px;
+	width:170px;
+	border-right:none;
+	float:left;
+	padding-left:5px;
+	background-color:#fff;
+}
+
+.search-color{
+	height:32px;
+	border:1px solid rgb(150, 16, 16);
+	border-left:none;
+	border-radius:0 5px 5px 0;
+	float:left;
+	background-color:rgb(150, 16, 16);
+	color:#ffffff;
+	width:30px;
+}
+
+.search-select{
+	float:left;
+	margin-right:3px;
+	margin-top:1px;
+}
+
+.search-select select{
+	background-color:rgb(150, 16, 16);
+	border:1px solid rgb(150, 16, 16);
+	height:30px;
+	color:#ffffff;
+}
+
+.search-color:focus{
+	background-color: rgba(150,16,16,0.7);
 }
 
 

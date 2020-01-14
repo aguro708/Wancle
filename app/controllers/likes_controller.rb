@@ -1,4 +1,7 @@
 class LikesController < ApplicationController
+	def index
+		@likes=Like.where(user_id: current_user.id)
+	end
 	def create
 		@post=Post.find(params[:post_id])
 		@like=Like.new

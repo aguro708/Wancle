@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      item:
+    attributes:
+      item:
+        link: リンク先URL
+        content: 紹介文

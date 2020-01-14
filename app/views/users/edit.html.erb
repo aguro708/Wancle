@@ -2,17 +2,20 @@
 	<div class="profile-edit-all">
 		<div class="profile-edit-title">プロフィール編集</div>
 		<%= form_for @user, url:user_path(@user.id) do |f| %>
+			<% if @user.errors.any? %>
+				<div class = "alert alert-warning">
+				  	<ul>
+				  		<% @user.errors.full_messages.each do |message| %>
+	                      <li><%= message %></li>
+	                    <% end %>
+	                </ul>
+	            </div>
+            <% end %>
 		<div class="field">
 			<div class="field-tag">
 				<%= f.label :名前 %>
 			</div>
-			<%= f.text_field :name,class: "field-field" %>
-		</div>
-		<div class="field">
-			<div class="field-tag">
-				<%= f.label :年齢 %>
-			</div>
-			<%= f.number_field :old,class: "field-field" %>
+			<%= f.text_field :name,class: "field-field",:placeholder => "例）山田太郎（20文字以下）" %>
 		</div>
 		<div class="field">
 			<div class="field-tag">
@@ -34,6 +37,12 @@
 		</div>
 		<div class="field">
 			<div class="field-tag">
+				<%= f.label :年齢 %>
+			</div>
+			<%= f.number_field :old,class: "field-field",:placeholder => "例）20" %>
+		</div>
+		<div class="field">
+			<div class="field-tag">
 				<%= f.label :プロフィール画像 %>
 			</div>
 			<%= f.attachment_field :profile_image,class: "field-field" %>
@@ -42,7 +51,7 @@
 			<div class="field-tag">
 				<%= f.label :自己紹介 %>
 			</div>
-			<%= f.text_area :introduction,class: "field-field introduction" %>100文字以下
+			<%= f.text_area :introduction,class: "field-field introduction",:placeholder => "（100文字以下）" %>
 		</div>
 		<div class="profile-btn-line">
 			<%= f.submit '編集完了',class: "profile-btn" %>

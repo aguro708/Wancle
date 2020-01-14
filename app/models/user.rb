@@ -10,6 +10,14 @@ class User < ApplicationRecord
          has_many :liked_posts, through: :likes, source: :post
          has_many :favorites, dependent: :destroy
          has_many :favorited_items, through: :favorites, source: :item
+         validates :name, presence: true
+         validates :name, length: {maximum:20}
+         validates :gender, presence: true
+         validates :writer, presence: true
+         validates :old, presence: true
+         validates :old, numericality: {only_integer: true}
+	     validates :old, numericality: {greater_than_or_equal_to: 0}
+	     validates :introduction, length: {maximum:100}
 
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)

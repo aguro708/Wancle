@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      user:
+    attributes:
+      user:
+        name: 名前
+        writer: ライターかユーザー
+        gender: 性別
+        old: 年齢
+        introduction: 自己紹介
+        email: メールアドレス
+        password: パスワード

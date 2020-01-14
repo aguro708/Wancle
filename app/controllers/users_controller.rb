@@ -12,9 +12,7 @@ class UsersController < ApplicationController
 		if @user.update(user_params)
 			redirect_to user_path(@user.id)
 		else
-			@posts=@user.posts.order("id DESC")
-			@items=@user.items.order("id DESC")
-			render :show
+			render :edit
 		end
 	end
 	def destroy

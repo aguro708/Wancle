@@ -52,7 +52,14 @@ class PostsController < ApplicationController
   end
 
   def search
+    @post_or_item=params[:option]
+    if @post_or_item=="1"
+      @posts=Post.search(params[:search], @post_or_item)
+    else
+      @items=Item.search(params[:search], @post_or_item)
+    end
   end
+
   private
   def post_params
     params.require(:post).permit(:content,:genre_id)
