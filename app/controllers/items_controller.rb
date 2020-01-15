@@ -1,12 +1,14 @@
 class ItemsController < ApplicationController
 	def index
-		@items=Item.order("id DESC")
+		@items=Item.order("id DESC").page(params[:page]).per(16)
 		@genres=Genre.all
 	end
+
 	def new
 		@item=Item.new
 		@post=Post.find(params[:post_id])
 	end
+
 	def create
 		@item=Item.new(item_params)
 		@post=Post.find(params[:post_id])
@@ -18,10 +20,12 @@ class ItemsController < ApplicationController
 			render :new
 		end
 	end
+
 	def edit
 		@item=Item.find(params[:id])
 		@post=Post.find(params[:post_id])
 	end
+
 	def update
 		@item=Item.find(params[:id])
 		@post=Post.find(params[:post_id])
@@ -31,21 +35,27 @@ class ItemsController < ApplicationController
 			render :edit
 		end
 	end
+
 	def destroy
 		@item=Item.find(params[:id])
 		@post=Post.find(params[:post_id])
 		if @item.destroy
 			redirect_to post_path(@post.id)
 		else
+			@items=@post.items.page(params[:page]).per(16)
 			render "posts/show"
 		end
 	end
+
 	def favorite
-    @all_ranks = Item.find(Favorite.group(:item_id).order('count(item_id) desc').pluck(:item_id))
-    @genres=Genre.all
+		@all_ranks = Item.find(Favorite.group(:item_id).order('count(item_id) desc').pluck(:item_id))
+		@all_ranks = Kaminari.paginate_array(@all_ranks).page(params[:page]).per(16)
+		@genres=Genre.all
 	end
+
 	private
 	def item_params
-    params.require(:item).permit(:content,:image,:link)
-end
+		params.require(:item).permit(:content,:image,:link)
+	end
+
 end

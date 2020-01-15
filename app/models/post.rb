@@ -6,7 +6,7 @@ class Post < ApplicationRecord
 	has_many :liked_users, through: :likes, source: :user
 	validates :genre_id, presence: true
 	validates :content, presence: true
-	validates :content, length: {maximum:120}
+	validates :content, length: {maximum:198}
 
 	def self.search(search, post_or_item)
         if post_or_item=="1"

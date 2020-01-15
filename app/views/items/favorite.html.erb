@@ -12,7 +12,7 @@
 		<div class="item-index">
 			<a href="<%= item.link %>">
 				<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
-				<div class="item-content">
+				<div class="item-content-2">
 					<span>
 						<%= item.content.truncate(49) %>
 					</span>
@@ -28,5 +28,8 @@
 			</div>
 		</div>
 		<% end %>
+		<div class="paginate">
+    		<%= paginate @all_ranks %>
+        </div>
 	</div>
 </div>

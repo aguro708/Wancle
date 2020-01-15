@@ -45,24 +45,25 @@
 		<% end %>
 	</div>
 	<%= link_to "記事を載せる方はこちら",new_post_item_path(post_id: @post.id) %><br>
-	<div class="item-content">
-		<div class="user-item-index">
-			<% @post.items.each do |item| %>
-			<div class="item-index">
-				<a href="<%= item.link %>">
-					<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
-					<p class="item-content">
-						<%= item.content %>
-					</p>
-				</a>
-				<p class="user-name">
-					<strong><%= link_to item.user.name,user_path(item.user.id) %></strong>
+	<div class="item-content user-item-index">
+		<% @items.each do |item| %>
+		<div class="item-index">
+			<a href="<%= item.link %>">
+				<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
+				<p class="item-content-2">
+					<%= item.content %>
 				</p>
-				<div id="favorite-<%= item.id %>">
-					<%= render partial: "favorites/favorite", locals: { item: item } %>
-				</div>
+			</a>
+			<p class="user-name">
+				<strong><%= link_to item.user.name,user_path(item.user.id) %></strong>
+			</p>
+			<div id="favorite-<%= item.id %>">
+				<%= render partial: "favorites/favorite", locals: { item: item } %>
 			</div>
-			<% end %>
 		</div>
+		<% end %>
+		<div class="paginate">
+    		<%= paginate @items %>
+        </div>
 	</div>
 </div>

@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
   def index
-    @posts=Post.order("id DESC")
+    @posts=Post.order("id DESC").page(params[:page]).per(15)
     @genres=Genre.all
   end
 
   def show
     @post=Post.find(params[:id])
+    @items=Item.where(post_id: @post.id).order("id DESC").page(params[:page]).per(16)
   end
 
   def new
@@ -48,15 +49,16 @@ class PostsController < ApplicationController
 
   def like
     @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+    @all_ranks = Kaminari.paginate_array(@all_ranks).page(params[:page]).per(15)
     @genres=Genre.all
   end
 
   def search
     @post_or_item=params[:option]
     if @post_or_item=="1"
-      @posts=Post.search(params[:search], @post_or_item)
+      @posts=Post.search(params[:search], @post_or_item).order("id DESC").page(params[:page]).per(15)
     else
-      @items=Item.search(params[:search], @post_or_item)
+      @items=Item.search(params[:search], @post_or_item).order("id DESC").page(params[:page]).per(16)
     end
   end
 
@@ -64,4 +66,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:content,:genre_id)
   end
+
 end

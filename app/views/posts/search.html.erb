@@ -46,6 +46,9 @@
 				            </div>
 				<% end %>
 			<% end %>
+			<div class="paginate">
+				<%= paginate @posts %>
+    		</div>
 		</div>
 	<% else %>
 		<div class="item-content">
@@ -69,6 +72,9 @@
 				</div>
 			</div>
 			<% end %>
+			<div class="paginate">
+				<%= paginate @items %>
+			</div>
 		</div>
 	<% end %>
 </div>

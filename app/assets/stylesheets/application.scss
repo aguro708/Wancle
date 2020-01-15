@@ -26,13 +26,48 @@
   font-family: "Yu Gothic";
 }
 
+body{
+	background-color:#f7f7f7;
+	margin: 0 auto;
+}
+
+footer{
+	height:80px;
+	width:100%;
+	text-align:center;
+	line-height: 80px;
+	color:white;
+	background-color:#8c2a2a;
+	margin-top:50px;
+	clear: both;
+}
+
 header{
+	z-index: 9999;
 	height: 75px;
 	background-color:white;
 	width:100%;
 	position:fixed;
 	top:0px;
 	left:0px;
+}
+
+textarea,input{
+	background-color:#f7f7f7;
+}
+
+textarea:focus, input:focus{
+	outline:0;
+	border: 1px solid rgb(150, 16, 16);
+	background-color:#fff;
+}
+
+select:focus,button:focus{
+	outline:0;
+}
+
+textarea:hover, input:hover{
+	border: 1px solid rgb(150, 16, 16);
 }
 
 .float{
@@ -152,22 +187,6 @@ header{
 	min-height: 700px;
 }
 
-body{
-	background-color:#f7f7f7;
-	margin: 0 auto;
-}
-
-footer{
-	height:80px;
-	width:100%;
-	text-align:center;
-	line-height: 80px;
-	color:white;
-	background-color:#8c2a2a;
-	margin-top:50px;
-	clear: both;
-}
-
 .sign-up,.sign-in,.user-edit{
 	width:480px;
 	margin:0 auto;
@@ -231,6 +250,15 @@ footer{
 }
 
 .sign-up-btn,.sign-in-btn,.profile-btn,.post-new-btn,.item-new-btn{
+	background-color:rgb(150, 16, 16);
+	color:white;
+	height:48px;
+	line-height:48px;
+	padding:0 80px;
+	border-radius:8px;
+}
+
+.sign-up-btn:focus,.sign-in-btn:focus,.profile-btn:focus,.post-new-btn:focus,.item-new-btn:focus{
 	background-color:rgb(150, 16, 16);
 	color:white;
 	height:48px;
@@ -426,6 +454,10 @@ footer{
 }
 
 .item-content{
+	overflow: auto;
+}
+
+.item-content-2{
 	height:60px;
 }
 
@@ -497,10 +529,15 @@ footer{
 .profile-content{
 	width:80%;
 	margin:0 auto;
+	overflow: auto;
+	margin-bottom:50px;
+	background-color:#ffffff;
+	padding-top:40px;
 }
 
 .profile-left{
 	float:left;
+	margin-left:80px;
 }
 
 .profile-image img{
@@ -510,7 +547,7 @@ footer{
 
 .profile {
 	float:left;
-	margin-left:100px;
+	margin-left:70px;
 	margin-top:10px;
 	width:400px;
 	margin-bottom:80px;
@@ -518,19 +555,19 @@ footer{
 
 .profile-edit{
 	color:white;
-	background-color:skyblue;
-	border:solid 1px skyblue;
+	background-color:rgb(150, 16, 16);
+	border:solid 1px rgb(150, 16, 16);
 	text-decoration:none;
-	border-radius:30px 30px;
-	padding:5px 8px;
+	border-radius:8px;
+	padding:10px 25px;
 	font-weight:bold;
 }
 
 .profile-edit:hover{
 	text-decoration:none;
-	background-color:blue;
+	background-color:rgba(150, 16, 16, 0.8);
 	color:white;
-	border-color:blue;
+	border-color:rgba(150, 16, 16, 0.8);
 }
 
 .profile-writer{
@@ -559,7 +596,7 @@ footer{
 }
 
 .user-item-index,.user-post-index{
-	margin-top:100px;
+	margin-top:80px;
 }
 
 .user-destroy-btn{
@@ -623,24 +660,6 @@ footer{
 	display:block;
 }
 
-textarea,input{
-	background-color:#f7f7f7;
-}
-
-textarea:focus, input:focus{
-	outline:0;
-	border: 1px solid rgb(150, 16, 16);
-	background-color:#fff;
-}
-
-select:focus,button:focus{
-	outline:0;
-}
-
-textarea:hover, input:hover{
-	border: 1px solid rgb(150, 16, 16);
-}
-
 .search-radius{
 	border-radius:5px 0 0 5px;
 	border: 1px solid #ccc;
@@ -678,6 +697,21 @@ textarea:hover, input:hover{
 
 .search-color:focus{
 	background-color: rgba(150,16,16,0.7);
+}
+
+.paginate{
+	clear:both;
+	text-align:center;
+}
+
+.pagination .page a,.pagination .page a:hover,.pagination .page a:active,.pagination .page a:focus,.pagination .next a,.pagination .next a:hover,.pagination .next a:active,.pagination .next a:focus,.pagination .last a,.pagination .last a:hover,.pagination .last a:active,.pagination .last a:focus,.pagination .first a,.pagination .first a:hover,.pagination .first a:active,.pagination .first a:focus,.pagination .prev a,.pagination .prev a:hover,.pagination .prev a:active,.pagination .prev a:focus{
+	color:rgb(150, 16, 16);
+}
+
+.pagination .active a,.pagination .active a:hover,.pagination .active a:focus{
+	background-color:rgb(150, 16, 16);
+	border-color:rgb(150, 16, 16);
+	color:#ffffff;
 }
 
 
