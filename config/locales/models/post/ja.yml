@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      post:
+    attributes:
+      post:
+        content: 投稿内容
+        genre_id: ジャンル

@@ -1,0 +1,36 @@
+<div class="body">
+	<div class="genre-link1">
+		<% @genres.each do |genre| %>
+		<%= link_to genre_order_path(genre.id),class: "genre_#{genre.id} genre-link" do %>
+		<%= genre.genre %>
+		<% end %>
+		<% end %>
+	</div>
+	<h2>人気順</h2>
+	<%= link_to "新着順",genre_order_path(@genre.id) %><br>
+	<div class="item-content">
+		<% @genre_ranks.each do |item| %>
+		<div class="item-index">
+			<a href="<%= item.link %>">
+				<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
+				<div class="item-content-2">
+					<span>
+						<%= item.content.truncate(49) %>
+					</span>
+				</div>
+			</a>
+			<div class="user-name">
+				<span>
+					<strong><%= link_to item.user.name,user_path(item.user.id) %></strong>
+				</span>
+			</div>
+			<div id="favorite-<%= item.id %>">
+				<%= render partial: "favorites/favorite", locals: { item: item } %>
+			</div>
+		</div>
+		<% end %>
+		<div class="paginate">
+    		<%= paginate @genre_ranks %>
+        </div>
+	</div>
+</div>

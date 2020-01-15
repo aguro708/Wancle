@@ -1,10 +1,28 @@
-<div class="item-new">
-	<%= form_for @item, url:post_item_path(post_id: @post.id, id: @item.id) do |f| %>
-		<%= f.label :紹介文 %><br>
-		<%= f.text_area :content,class: "item-new-content" %><br>
-		<%= f.label :リンク %><br>
-		<%= f.text_field :link,class: "item-new-link" %><br>
-		<%= f.attachment_field :image %><br>
-		<%= f.submit '編集完了',class: "btn btn-success" %>
-	<% end %>
+<div class="body item-new">
+	<div class="item-new-inset">
+		<div class="item-new-title">投稿記事を編集しよう</div>
+		<%= form_for @item, url:post_item_path(post_id: @post.id,id: @item.id) do |f| %>
+		    <% if @item.errors.any? %>
+				<div class = "alert alert-warning">
+				  	<ul>
+				  		<% @item.errors.full_messages.each do |message| %>
+	                      <li><%= message %></li>
+	                    <% end %>
+	                </ul>
+	            </div>
+            <% end %>
+		<div class="field">
+		    <%= f.attachment_field :image,class: "field-field" %>
+		</div>
+		<div class="field">
+			<%= f.text_field :link,class: "field-field",:placeholder => "リンク先URL" %>
+		</div>
+		<div class="field">
+			<%= f.text_area :content,class: "item-new-content field-field",:placeholder => "紹介文（100文字以下）" %>
+		</div>
+		<div class="item-new-btn-line">
+			<%= f.submit '編集完了',class: "item-new-btn" %>
+		</div>
+		<% end %>
+	</div>
 </div>
