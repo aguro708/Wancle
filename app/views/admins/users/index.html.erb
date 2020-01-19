@@ -1,0 +1,24 @@
+<div class="body">
+	<h3>会員登録ユーザー一覧</h3>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th class="">id</th>
+				<th class="">ユーザ名</th>
+				<th class="">メールアドレス</th>
+			</tr>
+		</thead>
+		<% @users.each do |user| %>
+			<thead>
+				<tr>
+					<td class=""><%= user.id %></td>
+					<td class="">
+							<%= link_to user.name,admins_user_path(user.id) %>
+					</td>
+					<td class=""><%= user.email %></td>
+				</tr>
+			</thead>
+		<% end %>
+	</table>
+	<%= paginate @users %>
+</div>

@@ -1,0 +1,22 @@
+<div class="body post-new">
+	<div class="post-new-inset">
+		<div class="post-new-title">ジャンル編集</div>
+		<%= form_for @genre, url:admins_genre_path(@genre) do |f| %>
+		    <% if @genre.errors.any? %>
+				<div class = "alert alert-warning">
+				  	<ul>
+				  		<% @genre.errors.full_messages.each do |message| %>
+	                      <li><%= message %></li>
+	                    <% end %>
+	                </ul>
+	            </div>
+            <% end %>
+		<div class="field">
+		   <%= f.text_field :genre,class: "field-field",:placeholder => "ジャンル" %>
+		</div>
+		<div class="post-new-btn-line">
+		   <%= f.submit '完了',class: "post-new-btn"  %>
+		</div>
+		<% end %>
+	</div>
+</div>

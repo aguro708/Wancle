@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	skip_before_action :require_admin_login
+	before_action :correct_user,only:[:edit]
 	def show
 		@user=User.find(params[:id])
 		@posts=@user.posts.order("id DESC").page(params[:post_page]).per(10)

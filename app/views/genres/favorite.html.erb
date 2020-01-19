@@ -1,13 +1,31 @@
 <div class="body">
 	<div class="genre-link1">
+		<div class="genre-link1-title">ジャンルから探す</div>
 		<% @genres.each do |genre| %>
-		<%= link_to genre_order_path(genre.id),class: "genre_#{genre.id} genre-link" do %>
-		<%= genre.genre %>
-		<% end %>
+		    <% if @genre==genre %>
+				<label class="genre-link genre-link-color">
+					<%= link_to genre_order_path(genre.id) do %>
+						<span>#</span>
+						<span class="genre-genre">
+							<%= genre.genre %>
+						</span>
+					<% end %>
+				</label>
+			<% else %>
+				<label class="genre-link">
+					<%= link_to genre_order_path(genre.id) do %>
+						<span>#</span>
+						<span class="genre-genre">
+							<%= genre.genre %>
+						</span>
+					<% end %>
+				</label>
+			<% end %>
 		<% end %>
 	</div>
-	<h2>人気順</h2>
-	<%= link_to "新着順",genre_order_path(@genre.id) %><br>
+	<div class="genre-genre-title"><span># </span><%= @genre.genre %></div>
+	<div class="genre-genre-title-2">人気順</div>
+	<%= link_to "新着順で探す",genre_order_path(@genre.id) %><br>
 	<div class="item-content">
 		<% @genre_ranks.each do |item| %>
 		<div class="item-index">

@@ -60,7 +60,7 @@ User.create!(
 			writer: 'writer',
 			old: 10,
 			gender: '男',
-			email: 'a@a',
+			email: 'a@a.com',
 			password: 'aaaaaa',
 		}])
 Post.create!(
@@ -69,4 +69,10 @@ Post.create!(
 			content: '吉田正尚のトレーニング方法について',
 			genre_id: 1,
 			user_id: 1,
+		}])
+Admin.create!(
+	[
+		{
+			email: 'zhiyeahei878@gmail.com',
+			password: 'naoya0818wancleaguro',
 		}])

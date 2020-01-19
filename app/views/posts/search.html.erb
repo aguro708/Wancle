@@ -3,47 +3,23 @@
 		<div class="post-padding-top">
 			<% @posts.each do |post| %>
 				<%= link_to post_path(post.id) do %>
-					<% if post.genre_id==1 %>
-						<div class="post-roop post-color-1">
-					<% elsif post.genre_id==2 %>
-						<div class="post-roop post-color-2">
-					<% elsif post.genre_id==3 %>
-						<div class="post-roop post-color-3">
-					<% elsif post.genre_id==4 %>
-							<div class="post-roop post-color-4">
-					<% elsif post.genre_id==5 %>
-							<div class="post-roop post-color-5">
-					<% elsif post.genre_id==6 %>
-							<div class="post-roop post-color-6">
-					<% elsif post.genre_id==7 %>
-							<div class="post-roop post-color-7">
-					<% elsif post.genre_id==8 %>
-							<div class="post-roop post-color-8">
-					<% elsif post.genre_id==9 %>
-							<div class="post-roop post-color-9">
-					<% elsif post.genre_id==10 %>
-							<div class="post-roop post-color-10">
-					<% elsif post.genre_id==11 %>
-							<div class="post-roop post-color-11">
-					<% else %>
-							<div class="post-roop post-color-12">
-					<% end %>
-					<p class="post-user-name">
-						<%= link_to user_path(post.user.id) do %>
-								<%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<%= post.user.name %>
-						<% end %>
-					</p>
-					<%= link_to post_path(post.id) do %>
-						<p class="post-content">
-							<%= post.content %>
+				    <div class="post-roop">
+						<p class="post-user-name">
+							<%= link_to user_path(post.user.id) do %>
+									<%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<%= post.user.name %>
+							<% end %>
 						</p>
-						<div id="like-<%= post.id %>">
-							<%= render partial: "likes/like", locals: { post: post } %>
-					    </div>
-					<% end %>
-				            </div>
+						<%= link_to post_path(post.id) do %>
+							<p class="post-content">
+								<%= post.content %>
+							</p>
+							<div id="like-<%= post.id %>">
+								<%= render partial: "likes/like", locals: { post: post } %>
+						    </div>
+						<% end %>
+					</div>
 				<% end %>
 			<% end %>
 			<div class="paginate">
@@ -56,7 +32,7 @@
 			<div class="item-index">
 				<a href="<%= item.link %>">
 					<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
-					<div class="item-content">
+					<div class="item-content-2">
 						<span>
 							<%= item.content.truncate(49) %>
 						</span>

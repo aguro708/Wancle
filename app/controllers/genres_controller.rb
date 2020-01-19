@@ -1,4 +1,9 @@
 class GenresController < ApplicationController
+    skip_before_action :require_login
+    skip_before_action :require_admin_login
+    before_action :require_admin_already
+
+
   def show
   	@genre=Genre.find(params[:id])
   	@posts=@genre.posts.order("id DESC").page(params[:page]).per(15)
