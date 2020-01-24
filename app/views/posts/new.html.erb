@@ -1,6 +1,11 @@
 <div class="body post-new">
 	<div class="post-new-inset">
-		<div class="post-new-title">あなたの読みたい記事を書いてみよう</div>
+		<div class="post-new-title">
+			あなたの読みたい記事を書いてみよう
+		</div>
+		<div class="post-new-title2">
+			あなたの読みたい記事を<br>書いてみよう
+		</div>
 		<%= form_for @post, url:posts_path do |f| %>
 		    <% if @post.errors.any? %>
 				<div class = "alert alert-warning">

@@ -1,8 +1,10 @@
 class FavoritesController < ApplicationController
 	skip_before_action :require_admin_login
+
 	def index
 		@favorites=Favorite.where(user_id: current_user.id).order("id DESC").page(params[:page]).per(16)
 	end
+
 	def create
 		@item=Item.find(params[:item_id])
 		@favorite=Favorite.new

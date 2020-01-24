@@ -23,3 +23,18 @@ $(document).on('turbolinks:load', function() {
       return false;
   });
 });
+$(document).on('turbolinks:load', function() {
+  $('.menu-trigger').on('click', function() {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    return false;
+  });
+ });
+$(document).on('turbolinks:load', function() {
+  $('.search-hide-button').on('click', function() {
+    $('.wancle-right form').css({'display': 'block'});
+    $('.search-hide-button').css({'display': 'none'});
+    $('.wancle-sp').css({'display': 'none'});
+    return false;
+  });
+ });

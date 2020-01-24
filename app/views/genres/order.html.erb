@@ -25,7 +25,7 @@
 	</div>
 	<div class="genre-genre-title"><span># </span><%= @genre.genre %></div>
 	<div class="genre-genre-title-2">新着順</div>
-	<%= link_to "人気順で探す",genre_favorites_order_path(@genre.id) %><br>
+	<%= link_to "人気順で探す",genre_favorites_order_path(@genre.id),class: "link-sp" %><br>
 	<div class="item-content">
 		<% @items.each do |item| %>
 		<div class="item-index">

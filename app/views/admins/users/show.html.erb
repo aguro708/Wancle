@@ -24,13 +24,12 @@
 		<% @posts.each do |post| %>
 			<%= link_to admins_post_path(post.id) do %>
 			    <div class="post-roop">
-			    	<p class="post-user-name">
+			    	<div class="post-user-name">
 			    		<%= link_to admins_user_path(post.user.id) do %>
-				    		<%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
-				    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				    		<%= post.user.name %>
+			    		   <%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
+			    		   <%= link_to post.user.name, admins_user_path(post.user.id),class: "post-user-name-link" %>
 			    		<% end %>
-			    	</p>
+			    	</div>
 			    	<%= link_to admins_post_path(post.id) do %>
 				    	<p class="post-content">
 				    		<%= post.content %>

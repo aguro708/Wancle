@@ -21,6 +21,7 @@ class Admins::GenresController < ApplicationController
   	@genre_ranks = Kaminari.paginate_array(@genre_ranks).page(params[:page]).per(16)
   	@genres=Genre.all
   end
+
   def order
   	@genre=Genre.find(params[:id])
   	@items1=Item.order("id DESC")
@@ -67,4 +68,5 @@ class Admins::GenresController < ApplicationController
     def genre_params
 		params.require(:genre).permit(:genre)
 	end
+
 end

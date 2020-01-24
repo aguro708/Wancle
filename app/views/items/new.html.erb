@@ -1,6 +1,9 @@
 <div class="body item-new">
 	<div class="item-new-inset">
 		<div class="item-new-title">あなたのおすすめ記事を紹介しよう</div>
+		<div class="item-new-title2">
+			あなたのおすすめ記事を<br>紹介しよう
+		</div>
 		<%= form_for @item, url:post_items_path(post_id: @post.id) do |f| %>
 		    <% if @item.errors.any? %>
 				<div class = "alert alert-warning">

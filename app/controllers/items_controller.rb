@@ -34,7 +34,6 @@ class ItemsController < ApplicationController
 		unless @user==@item.user
 			redirect_to items_path
 		end
-
 	end
 
 	def update

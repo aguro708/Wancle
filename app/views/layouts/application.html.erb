@@ -4,6 +4,9 @@
     <title>Wancle</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
+
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -11,126 +14,168 @@
 
 
   <body>
-  <header>
-    <div class="wancle">
-      <span class="float font">Wancle</span>
-      <span class="float">
-      <img src="/assets/記事アイコン5.jpeg" alt="">
+    <header class="header">
+      <div class="header-contents">
+        <div class="wancle">
+          <span class="float font">Wancle</span>
+          <span class="float">
+            <img src="/assets/記事アイコン5.jpeg" alt="">
+          </span>
+          <p>〜あなたが欲しい記事を〜</p>
+        </div>
+        <div class="wancle-right">
+          <button class="search-hide-button">
+            <i class="fas fa-search search-hide"></i>
+          </button>
+            <%= form_tag(searchs_path, :method=>'get') do %>
+                <div class="search-select">
+                  <%= select_tag(:option,options_for_select([["投稿","1"],["記事","2"]])) %>
+                </div>
+                <%= text_field_tag :search,"",class: "search-radius",:placeholder => "キーワードから探す" %>
+                <%= button_tag :type => "submit",class: "search-color" do %>
+                  <i class="fas fa-search"></i>
+                <% end %>
+            <% end %>
+            <div class="wancle-sp">
+          <span class="font-sp">Wancle</span>
+        </div>
+            <% if user_signed_in? %>
+              <div id="sp-menu">
+                <ul>
+                  <li>
+                    <%= link_to likes_path do %>
+                       <i class="fas fa-heart"></i>いいね
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to favorites_path do %>
+                       <i class="fas fa-star"></i>お気に入り
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "新規投稿", new_post_path %>
+                  </li>
+                  <li>
+                    <%= link_to "投稿一覧", posts_path %>
+                  </li>
+                  <li>
+                    <%= link_to "記事一覧",items_path %>
+                  </li>
+                  <li>
+                    <%= link_to "マイページ", user_path(current_user) %>
+                  </li>
+                  <li>
+                    <%= link_to "ログアウト",destroy_user_session_path,method: :delete %>
+                  </li>
+                </ul>
+              </div>
+              <div id="hm-icon">
+                <a class="menu-trigger" href="#">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </a>
+              </div>
+            <% elsif admin_signed_in? %>
+              <div id="sp-menu">
+                <ul>
+                  <li>
+                    <%= link_to "投稿一覧", admins_posts_path %>
+                  </li>
+                  <li>
+                    <%= link_to "記事一覧", admins_items_path %>
+                  </li>
+                  <li>
+                    <%= link_to "ユーザ一覧", admins_users_path %>
+                  </li>
+                  <li>
+                    <%= link_to "ジャンル登録",new_admins_genre_path %>
+                  </li>
+                  <li>
+                    <%= link_to "ログアウト", destroy_admin_session_path,method: :delete %>
+                  </li>
+                </ul>
+              </div>
+              <div id="hm-icon">
+                <a class="menu-trigger" href="#">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </a>
+              </div>
+            <% else %>
+              <div id="sp-menu">
+                <ul>
+                  <li>
+                    <%= link_to "TOP", root_path %>
+                  </li>
+                  <li>
+                    <%= link_to "Wancleとは", tops_about_path %>
+                  </li>
+                  <li>
+                    <%= link_to "アカウント作成", new_user_registration_path %>
+                  </li>
+                  <li>
+                    <%= link_to "ログイン", new_user_session_path %>
+                  </li>
+                  <li>
+                    <%= link_to "投稿一覧", posts_path %>
+                  </li>
+                  <li>
+                    <%= link_to "記事一覧",items_path %>
+                  </li>
+                </ul>
+              </div>
+              <div id="hm-icon">
+                <a class="menu-trigger" href="#">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </a>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    </header>
+      <%= yield %>
+      <span id="back">
+        <a href="#">
+          <img src="/assets/pagetop2.jpg" alt="">
+        </a>
       </span>
-      <p>〜あなたが欲しい記事を〜</p>
+    <footer class="footer-responsive-out">
+      <div class="footer-contents">
+        Copyright © 2020 Wancle
+      </div>
+    </footer>
+    <div class="footer-contents footer-responsive-in">
+      <% if user_signed_in? %>
+        <%= link_to posts_path do %>
+          <i class="fas fa-home"></i>
+        <% end %>
+        <%= link_to items_path do %>
+          <i class="far fa-newspaper"></i>
+        <% end %>
+        <%= link_to user_path(current_user) do %>
+          <i class="fas fa-user"></i>
+        <% end %>
+        <%= link_to new_post_path do %>
+          <i class="fas fa-plus"></i>
+        <% end %>
+      <% else %>
+        <%= link_to posts_path do %>
+          <i class="fas fa-home"></i>
+        <% end %>
+        <%= link_to items_path do %>
+          <i class="far fa-newspaper"></i>
+        <% end %>
+        <%= link_to new_user_session_path do %>
+          <i class="fas fa-sign-in-alt"></i>
+        <% end %>
+        <%= link_to new_user_registration_path do %>
+          <i class="fas fa-user-plus"></i>
+        <% end %>
+      <% end %>
     </div>
-    <% if user_signed_in? %>
-      <ul class="wancle-right">
-        <li class="header-link">
-          <%= link_to likes_path do %>
-            <i class="fas fa-heart"></i>いいね
-          <% end %>
-        </li>
-        <li class="header-link">
-          <%= link_to favorites_path do %>
-            <i class="fas fa-star"></i>お気に入り
-          <% end %>
-        </li>
-        <li class="header-link">
-          <%= link_to "新規投稿", new_post_path %>
-        </li>
-        <li class="header-link">
-          <%= link_to "投稿一覧", posts_path %>
-        </li>
-        <li class="header-link">
-          <%= link_to "記事一覧",items_path %>
-        </li>
-        <li class="header-link">
-          <%= link_to "マイページ", user_path(current_user) %>
-        </li>
-        <li class="header-link">
-          <%= link_to "ログアウト",destroy_user_session_path,method: :delete %>
-        </li>
-        <li class="header-link">
-          <%= form_tag(searchs_path, :method=>'get') do %>
-            <div class="search-select">
-              <%= select_tag(:option,options_for_select([["投稿","1"],["記事","2"]])) %>
-            </div>
-            <%= text_field_tag :search,"",class: "search-radius",:placeholder => "キーワードから探す" %>
-            <%= button_tag :type => "submit",class: "search-color" do %>
-              <i class="fas fa-search"></i>
-            <% end %>
-          <% end %>
-        </li>
-      </ul>
-    <% elsif admin_signed_in? %>
-      <ul class="wancle-right">
-        <li class="header-link">
-          <%= link_to "投稿一覧", admins_posts_path %>
-        </li>
-        <li class="header-link">
-          <%= link_to "記事一覧", admins_items_path %>
-        </li>
-        <li class="header-link">
-          <%= link_to "ユーザ一覧", admins_users_path %>
-        </li>
-        <li class="header-link">
-          <%= link_to "ジャンル登録",new_admins_genre_path %>
-        </li>
-        <li class="header-link">
-          <%= link_to "ログアウト", destroy_admin_session_path,method: :delete %>
-        </li>
-        <li class="header-link">
-          <%= form_tag(admins_searchs_path, :method=>'get') do %>
-            <div class="search-select">
-              <%= select_tag(:option,options_for_select([["投稿","1"],["記事","2"]])) %>
-            </div>
-            <%= text_field_tag :search,"",class: "search-radius",:placeholder => "キーワードから探す" %>
-            <%= button_tag :type => "submit",class: "search-color" do %>
-              <i class="fas fa-search"></i>
-            <% end %>
-          <% end %>
-        </li>
-      </ul>
-    <% else %>
-      <ul class="wancle-right">
-        <li class="header-link">
-          <%= link_to "TOP", root_path %>
-        </li>
-        <li class="header-link">
-          <%= link_to "Wancleとは", tops_about_path %>
-        </li>
-        <li class="header-link">
-          <%= link_to "アカウント作成", new_user_registration_path %>
-        </li>
-        <li class="header-link">
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
-        <li class="header-link">
-          <%= link_to "投稿一覧", posts_path %>
-        </li>
-        <li class="header-link">
-          <%= link_to "記事一覧",items_path %>
-        </li>
-
-        <li class="header-link">
-          <%= form_tag(searchs_path, :method=>'get') do %>
-            <div class="search-select">
-              <%= select_tag(:option,options_for_select([["投稿","1"],["記事","2"]])) %>
-            </div>
-            <%= text_field_tag :search,"",class: "search-radius",:placeholder => "キーワードから探す" %>
-            <%= button_tag :type => "submit",class: "search-color" do %>
-              <i class="fas fa-search"></i>
-            <% end %>
-          <% end %>
-        </li>
-      </ul>
-    <% end %>
-  </header>
-    <%= yield %>
-    <span id="back">
-      <a href="#">
-        <img src="/assets/pagetop2.jpg" alt="">
-      </a>
-    </span>
-  </div>
-  <footer>
-    Copyright © 2020 Wancle
-  </footer>
   </body>
 </html>

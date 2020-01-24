@@ -26,17 +26,16 @@
 	<div class="post-padding-top">
 	<div class="genre-genre-title"><span># </span><%= @genre.genre %></div>
 	<div class="genre-genre-title-2">新着順</div>
-		<%= link_to "人気順で探す",genre_likes_order_path(@genre.id) %>
+		<%= link_to "人気順で探す",genre_likes_order_path(@genre.id),class: "link-sp" %>
 		<% @posts.each do |post| %>
 			<%= link_to post_path(post.id) do %>
 			    <div class="post-roop">
-					<p class="post-user-name">
-						<%= link_to user_path(post.user.id) do %>
-								<%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<%= post.user.name %>
-						<% end %>
-					</p>
+					<div class="post-user-name">
+			    		<%= link_to user_path(post.user.id) do %>
+			    		   <%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
+			    		   <%= link_to post.user.name, user_path(post.user.id),class: "post-user-name-link" %>
+			    		<% end %>
+			    	</div>
 					<%= link_to post_path(post.id) do %>
 						<p class="post-content">
 							<%= post.content %>

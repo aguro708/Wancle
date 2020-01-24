@@ -1,6 +1,9 @@
 <div class="body item-new">
 	<div class="item-new-inset">
-		<div class="item-new-title">投稿記事を編集しよう</div>
+		<div class="item-new-title">記事を編集しよう</div>
+		<div class="item-new-title2">
+			記事を編集しよう
+		</div>
 		<%= form_for @item, url:post_item_path(post_id: @post.id,id: @item.id) do |f| %>
 		    <% if @item.errors.any? %>
 				<div class = "alert alert-warning">

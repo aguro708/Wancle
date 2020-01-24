@@ -49,4 +49,5 @@ class Admins::PostsController < ApplicationController
 	def post_params
 		params.require(:post).permit(:content,:genre_id)
 	end
+
 end

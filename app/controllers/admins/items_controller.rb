@@ -34,4 +34,5 @@ class Admins::ItemsController < ApplicationController
 	def item_params
 		params.require(:item).permit(:content,:image,:link)
 	end
+
 end

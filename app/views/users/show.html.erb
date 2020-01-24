@@ -4,16 +4,47 @@
 			<div class="profile-image">
 			    <%= attachment_image_tag @user, :profile_image,fallback: "no_image.jpg", size:"120x120" %>
 			</div>
-			<div id="stats_<%= @user.id %>">
-				<%= render partial: 'relationships/stats',locals: { user: @user} %>
-		    </div>
-			<% if current_user==@user %>
-			    	<%= link_to "プロフィール編集",edit_user_path(@user.id),class: "profile-edit profile-edit-2" %>
-			<% else %>
-			<div id="follow_form_<%= @user.id %>">
-		        <%= render partial: 'relationships/follow_form',locals: { user: @user} %>
-		    </div>
-			<% end %>
+			<div class="profile-hide">
+				<h4><%= @user.name %></h4>
+				<h5 class="profile-right"><%= @user.old %>歳&nbsp;&nbsp;&nbsp;<%= @user.gender %>性&nbsp;&nbsp;&nbsp;
+					<% if @user.writer == "writer" %>
+					<span class="profile-writer"><%= @user.writer %></span>
+					<% else %>
+					<span class="profile-user"><%= @user.writer %></span>
+					<% end %>
+				</h5>
+				<% if current_user==@user %>
+					<div id="stats_<%= @user.id %>">
+						<%= render partial: 'relationships/stats',locals: { user: @user} %>
+				    </div>
+				<% end %>
+				<div class="profile-edit-hide1">
+					<% if current_user!=@user %>
+						<div id="stats_<%= @user.id %>_1">
+							<%= render partial: 'relationships/stats',locals: { user: @user} %>
+					    </div>
+					    <div id="follow_form_<%= @user.id %>_1">
+					        <%= render partial: 'relationships/follow_form',locals: { user: @user} %>
+					    </div>
+					<% end %>
+					<h4><%= @user.introduction %></h4>
+					<% if current_user==@user %>
+					    <%= link_to "プロフィール編集",edit_user_path(@user.id),class: "profile-edit profile-edit-2" %>
+					<% end %>
+				</div>
+			</div>
+			<div class="profile-edit-hide2">
+				<div id="stats_<%= @user.id %>_2">
+					<%= render partial: 'relationships/stats',locals: { user: @user} %>
+			    </div>
+				<% if current_user==@user %>
+				    	<%= link_to "プロフィール編集",edit_user_path(@user.id),class: "profile-edit profile-edit-2" %>
+				<% else %>
+				<div id="follow_form_<%= @user.id %>_2">
+			        <%= render partial: 'relationships/follow_form',locals: { user: @user} %>
+			    </div>
+				<% end %>
+			</div>
 		</div>
 		<div class="profile">
 			<h4><%= @user.name %></h4>
@@ -31,13 +62,12 @@
 		<% @posts.each do |post| %>
 			<%= link_to post_path(post.id) do %>
 			    <div class="post-roop">
-			    	<p class="post-user-name">
+			    	<div class="post-user-name">
 			    		<%= link_to user_path(post.user.id) do %>
-				    		<%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
-				    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				    		<%= post.user.name %>
+			    		   <%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
+			    		   <%= link_to post.user.name, user_path(post.user.id),class: "post-user-name-link" %>
 			    		<% end %>
-			    	</p>
+			    	</div>
 			    	<%= link_to post_path(post.id) do %>
 				    	<p class="post-content">
 				    		<%= post.content %>

@@ -1,6 +1,9 @@
 <div class="body post-new">
 	<div class="post-new-inset">
 		<div class="post-new-title">投稿を編集しよう</div>
+		<div class="post-new-title2">
+			投稿を編集しよう
+		</div>
 		<%= form_for @post, url:post_path(@post.id) do |f| %>
 		    <% if @post.errors.any? %>
 				<div class = "alert alert-warning">
