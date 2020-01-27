@@ -19,7 +19,7 @@ test:
   database: db/test.sqlite3
 
 production:
-  database: Wancle
+  database: wancledb
   adapter: mysql2
   encoding: utf8mb4
   charset: utf8mb4
