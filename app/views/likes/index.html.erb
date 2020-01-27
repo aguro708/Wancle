@@ -4,11 +4,11 @@
 			<%= link_to post_path(like.post.id),class: "post-link-all" do %>
 			    <div class="post-roop">
 					<div class="post-user-name">
-		    		<%= link_to user_path(like.post.user.id) do %>
-		    		   <%= attachment_image_tag like.post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
-		    		   <%= link_to like.post.user.name, user_path(like.post.user.id),class: "post-user-name-link" %>
-		    		<% end %>
-		    	</div>
+		    		   <%= link_to user_path(like.post.user.id) do %>
+			    		   <%= attachment_image_tag like.post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
+			    		   <%= link_to like.post.user.name, user_path(like.post.user.id),class: "post-user-name-link" %>
+		    		   <% end %>
+		    		</div>
 					<%= link_to post_path(like.post.id) do %>
 						<p class="post-content">
 							<%= like.post.content %>

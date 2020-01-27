@@ -4,17 +4,17 @@
 			<div class="profile-image">
 			    <%= attachment_image_tag @user, :profile_image,fallback: "no_image.jpg", size:"120x120" %>
 			</div>
-			    <p>
-			    	<%= link_to "プロフィール編集",edit_admins_user_path(@user.id),class: "profile-edit" %>
-			    </p>
+			<p>
+			    <%= link_to "プロフィール編集",edit_admins_user_path(@user.id),class: "profile-edit" %>
+			</p>
 		</div>
 		<div class="profile">
 			<h4><%= @user.name %></h4>
 			<h5 class="profile-right"><%= @user.old %>歳&nbsp;&nbsp;&nbsp;<%= @user.gender %>性&nbsp;&nbsp;&nbsp;
 				<% if @user.writer == "writer" %>
-				<span class="profile-writer"><%= @user.writer %></span>
+				   <span class="profile-writer"><%= @user.writer %></span>
 				<% else %>
-				<span class="profile-user"><%= @user.writer %></span>
+				   <span class="profile-user"><%= @user.writer %></span>
 				<% end %>
 			</h5>
 			<h4><%= @user.introduction %></h4>
@@ -52,32 +52,32 @@
     </div>
     <div class="item-content user-item-index">
     	<% @items.each do |item| %>
-    	<div class="item-index">
-    		<a href="<%= item.link %>">
-    			<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
-    			<div class="item-content-2">
-    				<span>
-    					<%= item.content.truncate(49) %>
-    				</span>
-    			</div>
-    		</a>
-    		<div class="user-name">
-    			<span>
-    				<strong><%= link_to item.user.name,admins_user_path(item.user.id) %></strong>
-    			</span>
-    		</div>
-    		<div class="item-createtime">
-				<span>
-					<%= link_to "編集",edit_admins_item_path(item.id),class: "btn-border" %>
-					<%= link_to "削除",admins_item_path(item.id),class: "btn-border2",method: :delete %>
-					<span class="yellow"><i class="far fa-star"></i></span>
-					<span class="black">
-						<%= item.favorites.count %>
+	    	<div class="item-index">
+	    		<a href="<%= item.link %>">
+	    			<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
+	    			<div class="item-content-2">
+	    				<span>
+	    					<%= item.content.truncate(49) %>
+	    				</span>
+	    			</div>
+	    		</a>
+	    		<div class="user-name">
+	    			<span>
+	    				<strong><%= link_to item.user.name,admins_user_path(item.user.id) %></strong>
+	    			</span>
+	    		</div>
+	    		<div class="item-createtime">
+					<span>
+						<%= link_to "編集",edit_admins_item_path(item.id),class: "btn-border" %>
+						<%= link_to "削除",admins_item_path(item.id),class: "btn-border2",method: :delete %>
+						<span class="yellow"><i class="far fa-star"></i></span>
+						<span class="black">
+							<%= item.favorites.count %>
+						</span>
+						<%= item.created_at.to_s(:datetime2_jp) %>
 					</span>
-					<%= item.created_at.to_s(:datetime2_jp) %>
-				</span>
-			</div>
-    	</div>
+				</div>
+	    	</div>
     	<% end %>
     	<div class="paginate">
     		<%= paginate @items, :param_name => 'item_page' %>

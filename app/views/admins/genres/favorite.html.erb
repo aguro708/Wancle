@@ -28,32 +28,32 @@
 	<%= link_to "新着順で探す",admins_genres_orders_path(@genre.id) %><br>
 	<div class="item-content">
 		<% @genre_ranks.each do |item| %>
-		<div class="item-index">
-			<a href="<%= item.link %>">
-				<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
-				<div class="item-content-2">
+			<div class="item-index">
+				<a href="<%= item.link %>">
+					<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
+					<div class="item-content-2">
+						<span>
+							<%= item.content.truncate(49) %>
+						</span>
+					</div>
+				</a>
+				<div class="user-name">
 					<span>
-						<%= item.content.truncate(49) %>
+						<strong><%= link_to item.user.name,admins_user_path(item.user.id) %></strong>
 					</span>
 				</div>
-			</a>
-			<div class="user-name">
-				<span>
-					<strong><%= link_to item.user.name,admins_user_path(item.user.id) %></strong>
-				</span>
-			</div>
-			<div class="item-createtime">
-				<span>
-					<%= link_to "編集",edit_admins_item_path(item.id),class: "btn-border" %>
-					<%= link_to "削除",admins_item_path(item.id),class: "btn-border2",method: :delete %>
-					<span class="yellow"><i class="far fa-star"></i></span>
-					<span class="black">
-						<%= item.favorites.count %>
+				<div class="item-createtime">
+					<span>
+						<%= link_to "編集",edit_admins_item_path(item.id),class: "btn-border" %>
+						<%= link_to "削除",admins_item_path(item.id),class: "btn-border2",method: :delete %>
+						<span class="yellow"><i class="far fa-star"></i></span>
+						<span class="black">
+							<%= item.favorites.count %>
+						</span>
+						<%= item.created_at.to_s(:datetime2_jp) %>
 					</span>
-					<%= item.created_at.to_s(:datetime2_jp) %>
-				</span>
+				</div>
 			</div>
-		</div>
 		<% end %>
 		<div class="paginate">
     		<%= paginate @genre_ranks %>

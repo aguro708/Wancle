@@ -9,11 +9,12 @@
 				</div>
 				<div class="profile-follow">
 					<div><%= link_to user.name,user_path(user.id) %></div>
-					<div class="profile-oldgender-follow"><%= user.old %>歳&nbsp;&nbsp;&nbsp;<%= user.gender %>性&nbsp;&nbsp;&nbsp;
+					<div class="profile-oldgender-follow">
+						<%= user.old %>歳&nbsp;&nbsp;&nbsp;<%= user.gender %>性&nbsp;&nbsp;&nbsp;
 						<% if user.writer == "writer" %>
-						<span class="profile-writer"><%= user.writer %></span>
+						    <span class="profile-writer"><%= user.writer %></span>
 						<% else %>
-						<span class="profile-user"><%= user.writer %></span>
+						    <span class="profile-user"><%= user.writer %></span>
 						<% end %>
 					</div>
 				</div>
@@ -23,7 +24,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="introduction-follow"><%= user.introduction %></div>
+			<div class="introduction-follow">
+				<%= user.introduction %>
+			</div>
 			<div class="follow-floatright-sp">
 				<div id="follow_form_<%= user.id %>_2">
 					<%= render partial: 'relationships/follow_form',locals: { user: user} %>

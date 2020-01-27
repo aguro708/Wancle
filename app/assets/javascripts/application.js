@@ -15,6 +15,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+// スクロールトップボタンを押すとページ上部にスクロールされる
 $(document).on('turbolinks:load', function() {
   $('#back a').on('click',function(){
     $('body, html').animate({
@@ -23,6 +25,8 @@ $(document).on('turbolinks:load', function() {
       return false;
   });
 });
+
+// ハンバーガーメニューを押すとページ全体にメニューが表示される
 $(document).on('turbolinks:load', function() {
   $('.menu-trigger').on('click', function() {
     $(this).toggleClass('active');
@@ -30,6 +34,8 @@ $(document).on('turbolinks:load', function() {
     return false;
   });
  });
+
+// レスポンシブ時、検索ボタンを押すと検索ボックスが現れる
 $(document).on('turbolinks:load', function() {
   $('.search-hide-button').on('click', function() {
     $('.wancle-right form').css({'display': 'block'});

@@ -14,18 +14,18 @@
 	                </ul>
 	            </div>
             <% end %>
-		<div class="field">
-		    <%= f.attachment_field :image,class: "field-field" %>
-		</div>
-		<div class="field">
-			<%= f.text_field :link,class: "field-field",:placeholder => "リンク先URL" %>
-		</div>
-		<div class="field">
-			<%= f.text_area :content,class: "item-new-content field-field",:placeholder => "紹介文（100文字以下）" %>
-		</div>
-		<div class="item-new-btn-line">
-			<%= f.submit '編集完了',class: "item-new-btn" %>
-		</div>
+			<div class="field">
+			    <%= f.attachment_field :image,class: "field-field" %>
+			</div>
+			<div class="field">
+				<%= f.text_field :link,class: "field-field",:placeholder => "リンク先URL" %>
+			</div>
+			<div class="field">
+				<%= f.text_area :content,class: "item-new-content field-field",:placeholder => "紹介文（100文字以下）" %>
+			</div>
+			<div class="item-new-btn-line">
+				<%= f.submit '編集完了',class: "item-new-btn" %>
+			</div>
 		<% end %>
 	</div>
 </div>

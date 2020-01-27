@@ -11,20 +11,20 @@
 				<div class = "alert alert-warning">
 				  	<ul>
 				  		<% @post.errors.full_messages.each do |message| %>
-	                      <li><%= message %></li>
+	                       <li><%= message %></li>
 	                    <% end %>
 	                </ul>
 	            </div>
             <% end %>
-		<div class="field">
-		   <%= f.collection_select :genre_id, @genres, :id, :genre, {include_blank: "ジャンル"} %>
-		</div>
-		<div class="field">
-		   <%= f.text_area :content,class: "field-field post-new-content",:placeholder => "どんな記事が欲しいか書いてみよう（198文字以下）" %>
-		</div>
-		<div class="post-new-btn-line">
-		   <%= f.submit '投稿',class: "post-new-btn"  %>
-		</div>
+			<div class="field">
+			   <%= f.collection_select :genre_id, @genres, :id, :genre, {include_blank: "ジャンル"} %>
+			</div>
+			<div class="field">
+			   <%= f.text_area :content,class: "field-field post-new-content",:placeholder => "どんな記事が欲しいか書いてみよう（198文字以下）" %>
+			</div>
+			<div class="post-new-btn-line">
+			   <%= f.submit '投稿',class: "post-new-btn"  %>
+			</div>
 		<% end %>
 	</div>
 </div>

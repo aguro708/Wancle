@@ -3,23 +3,23 @@
 		<div class="genre-link1-title">ジャンルから探す</div>
 		<% @genres.each do |genre| %>
 		    <% if @genre==genre %>
-		    <label class="genre-link genre-link-color">
-				<%= link_to admins_genre_path(genre.id) do %>
-					<span>#</span>
-					<span class="genre-genre">
-						<%= genre.genre %>
-					</span>
-				<% end %>
-			</label>
+			    <label class="genre-link genre-link-color">
+					<%= link_to admins_genre_path(genre.id) do %>
+						<span>#</span>
+						<span class="genre-genre">
+							<%= genre.genre %>
+						</span>
+					<% end %>
+				</label>
 			<% else %>
-			<label class="genre-link">
-				<%= link_to admins_genre_path(genre.id) do %>
-					<span>#</span>
-					<span class="genre-genre">
-						<%= genre.genre %>
-					</span>
-				<% end %>
-			</label>
+				<label class="genre-link">
+					<%= link_to admins_genre_path(genre.id) do %>
+						<span>#</span>
+						<span class="genre-genre">
+							<%= genre.genre %>
+						</span>
+					<% end %>
+				</label>
 			<% end %>
 		<% end %>
 	</div>

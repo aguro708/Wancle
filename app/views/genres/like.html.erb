@@ -23,20 +23,19 @@
 			<% end %>
 		<% end %>
 	</div>
-
 	<div class="post-padding-top">
-	<div class="genre-genre-title"><span># </span><%= @genre.genre %></div>
-	<div class="genre-genre-title-2">人気順</div>
+		<div class="genre-genre-title"><span># </span><%= @genre.genre %></div>
+		<div class="genre-genre-title-2">人気順</div>
 		<%= link_to "新着順で探す",genre_path(@genre.id),class: "link-sp" %>
 		<% @genre_ranks.each do |post| %>
 			<%= link_to post_path(post.id) do %>
-			    <div class="post-roop">
+				<div class="post-roop">
 					<div class="post-user-name">
-			    		<%= link_to user_path(post.user.id) do %>
-			    		   <%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
-			    		   <%= link_to post.user.name, user_path(post.user.id),class: "post-user-name-link" %>
-			    		<% end %>
-			    	</div>
+				    	<%= link_to user_path(post.user.id) do %>
+				    		<%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
+				    		<%= link_to post.user.name, user_path(post.user.id),class: "post-user-name-link" %>
+				    	<% end %>
+				    </div>
 					<%= link_to post_path(post.id) do %>
 						<p class="post-content">
 							<%= post.content %>
@@ -45,11 +44,11 @@
 							<%= render partial: "likes/like", locals: { post: post } %>
 						</div>
 					<% end %>
-			    </div>
+				</div>
 			<% end %>
 		<% end %>
 		<div class="paginate">
-    		<%= paginate @genre_ranks %>
-        </div>
+	    	<%= paginate @genre_ranks %>
+	    </div>
 	</div>
 </div>

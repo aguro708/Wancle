@@ -8,21 +8,18 @@
         </div>
         <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "field-field" %>
       </div>
-
       <div class="field">
         <div class="field-tag">
           <%= f.label :パスワード %>
         </div>
         <%= f.password_field :password, autocomplete: "current-password",class: "field-field" %>
       </div>
-
       <% if devise_mapping.rememberable? %>
         <div class="field">
           <%= f.check_box :remember_me %>
           <%= f.label :パスワードを記憶する %>
         </div>
       <% end %>
-
       <div class="sign-in-btn-line">
         <%= f.submit "ログイン",class: "sign-in-btn" %>
       </div>

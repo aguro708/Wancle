@@ -8,9 +8,9 @@
 				<h4><%= @user.name %></h4>
 				<h5 class="profile-right"><%= @user.old %>歳&nbsp;&nbsp;&nbsp;<%= @user.gender %>性&nbsp;&nbsp;&nbsp;
 					<% if @user.writer == "writer" %>
-					<span class="profile-writer"><%= @user.writer %></span>
+					   <span class="profile-writer"><%= @user.writer %></span>
 					<% else %>
-					<span class="profile-user"><%= @user.writer %></span>
+					   <span class="profile-user"><%= @user.writer %></span>
 					<% end %>
 				</h5>
 				<% if current_user==@user %>
@@ -38,11 +38,11 @@
 					<%= render partial: 'relationships/stats',locals: { user: @user} %>
 			    </div>
 				<% if current_user==@user %>
-				    	<%= link_to "プロフィール編集",edit_user_path(@user.id),class: "profile-edit profile-edit-2" %>
+				    <%= link_to "プロフィール編集",edit_user_path(@user.id),class: "profile-edit profile-edit-2" %>
 				<% else %>
-				<div id="follow_form_<%= @user.id %>_2">
-			        <%= render partial: 'relationships/follow_form',locals: { user: @user} %>
-			    </div>
+					<div id="follow_form_<%= @user.id %>_2">
+					    <%= render partial: 'relationships/follow_form',locals: { user: @user} %>
+					</div>
 				<% end %>
 			</div>
 		</div>
@@ -50,9 +50,9 @@
 			<h4><%= @user.name %></h4>
 			<h5 class="profile-right"><%= @user.old %>歳&nbsp;&nbsp;&nbsp;<%= @user.gender %>性&nbsp;&nbsp;&nbsp;
 				<% if @user.writer == "writer" %>
-				<span class="profile-writer"><%= @user.writer %></span>
+				   <span class="profile-writer"><%= @user.writer %></span>
 				<% else %>
-				<span class="profile-user"><%= @user.writer %></span>
+				   <span class="profile-user"><%= @user.writer %></span>
 				<% end %>
 			</h5>
 			<h4><%= @user.introduction %></h4>
@@ -85,24 +85,24 @@
     </div>
     <div class="item-content user-item-index">
     	<% @items.each do |item| %>
-    	<div class="item-index">
-    		<a href="<%= item.link %>">
-    			<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
-    			<div class="item-content-2">
-    				<span>
-    					<%= item.content.truncate(49) %>
-    				</span>
-    			</div>
-    		</a>
-    		<div class="user-name">
-    			<span>
-    				<strong><%= link_to item.user.name,user_path(item.user.id) %></strong>
-    			</span>
-    		</div>
-    		<div id="favorite-<%= item.id %>">
-    			<%= render partial: "favorites/favorite", locals: { item: item } %>
-    		</div>
-    	</div>
+	    	<div class="item-index">
+	    		<a href="<%= item.link %>">
+	    			<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
+	    			<div class="item-content-2">
+	    				<span>
+	    					<%= item.content.truncate(49) %>
+	    				</span>
+	    			</div>
+	    		</a>
+	    		<div class="user-name">
+	    			<span>
+	    				<strong><%= link_to item.user.name,user_path(item.user.id) %></strong>
+	    			</span>
+	    		</div>
+	    		<div id="favorite-<%= item.id %>">
+	    			<%= render partial: "favorites/favorite", locals: { item: item } %>
+	    		</div>
+	    	</div>
     	<% end %>
     	<div class="paginate">
     		<%= paginate @items, :param_name => 'item_page' %>

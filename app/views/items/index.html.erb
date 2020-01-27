@@ -16,24 +16,24 @@
 	<%= link_to "人気順で探す",item_favorites_order_path,class: "link-sp" %><br>
 	<div class="item-content">
 		<% @items.each do |item| %>
-		<div class="item-index">
-			<a href="<%= item.link %>">
-				<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
-				<div class="item-content-2">
+			<div class="item-index">
+				<a href="<%= item.link %>">
+					<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
+					<div class="item-content-2">
+						<span>
+							<%= item.content.truncate(49) %>
+						</span>
+					</div>
+				</a>
+				<div class="user-name">
 					<span>
-						<%= item.content.truncate(49) %>
+						<strong><%= link_to item.user.name,user_path(item.user.id) %></strong>
 					</span>
 				</div>
-			</a>
-			<div class="user-name">
-				<span>
-					<strong><%= link_to item.user.name,user_path(item.user.id) %></strong>
-				</span>
+				<div id="favorite-<%= item.id %>">
+					<%= render partial: "favorites/favorite", locals: { item: item } %>
+				</div>
 			</div>
-			<div id="favorite-<%= item.id %>">
-				<%= render partial: "favorites/favorite", locals: { item: item } %>
-			</div>
-		</div>
 		<% end %>
 		<div class="paginate">
     		<%= paginate @items %>

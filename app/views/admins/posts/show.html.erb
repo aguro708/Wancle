@@ -26,28 +26,28 @@
 	</div>
 	<div class="item-content user-item-index">
 		<% @items.each do |item| %>
-		<div class="item-index">
-			<a href="<%= item.link %>">
-				<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
-				<p class="item-content-2">
-					<%= item.content %>
+			<div class="item-index">
+				<a href="<%= item.link %>">
+					<%= attachment_image_tag item, :image,fallback: "no_image.jpg", size:"228x160" %>
+					<p class="item-content-2">
+						<%= item.content %>
+					</p>
+				</a>
+				<p class="user-name">
+					<strong><%= link_to item.user.name,admins_user_path(item.user.id) %></strong>
 				</p>
-			</a>
-			<p class="user-name">
-				<strong><%= link_to item.user.name,admins_user_path(item.user.id) %></strong>
-			</p>
-			<div class="item-createtime">
-				<span>
-					<%= link_to "編集",edit_admins_item_path(item.id),class: "btn-border" %>
-					<%= link_to "削除",admins_item_path(item.id),class: "btn-border2",method: :delete %>
-					<span class="yellow"><i class="far fa-star"></i></span>
-					<span class="black">
-						<%= item.favorites.count %>
+				<div class="item-createtime">
+					<span>
+						<%= link_to "編集",edit_admins_item_path(item.id),class: "btn-border" %>
+						<%= link_to "削除",admins_item_path(item.id),class: "btn-border2",method: :delete %>
+						<span class="yellow"><i class="far fa-star"></i></span>
+						<span class="black">
+							<%= item.favorites.count %>
+						</span>
+						<%= item.created_at.to_s(:datetime2_jp) %>
 					</span>
-					<%= item.created_at.to_s(:datetime2_jp) %>
-				</span>
+				</div>
 			</div>
-		</div>
 		<% end %>
 		<div class="paginate">
     		<%= paginate @items %>
