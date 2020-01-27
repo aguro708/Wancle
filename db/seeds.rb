@@ -95,7 +95,7 @@ User.create!(
 			old: 20,
 			gender: '男',
 			email: 'a@a.com',
-			password: 'aaaaaa',
+			password: 'gVp5K55WdE46HTD',
 		}])
 Post.create!(
 	[
@@ -108,5 +108,5 @@ Admin.create!(
 	[
 		{
 			email: 'zhiyeahei878@gmail.com',
-			password: 'naoya0818wancleaguro',
+			password: 'naoya0818wancleaguroidswne',
 		}])
