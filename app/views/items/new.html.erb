@@ -1,6 +1,9 @@
 <div class="body item-new">
 	<div class="item-new-inset">
 		<div class="item-new-title">あなたのおすすめ記事を紹介しよう</div>
+		<div class="item-new-title2">
+			あなたのおすすめ記事を<br>紹介しよう
+		</div>
 		<%= form_for @item, url:post_items_path(post_id: @post.id) do |f| %>
 		    <% if @item.errors.any? %>
 				<div class = "alert alert-warning">
@@ -11,18 +14,18 @@
 	                </ul>
 	            </div>
             <% end %>
-		<div class="field">
-		    <%= f.attachment_field :image,class: "field-field" %>
-		</div>
-		<div class="field">
-			<%= f.text_field :link,class: "field-field",:placeholder => "リンク先URL" %>
-		</div>
-		<div class="field">
-			<%= f.text_area :content,class: "item-new-content field-field",:placeholder => "紹介文（100文字以下）" %>
-		</div>
-		<div class="item-new-btn-line">
-			<%= f.submit '投稿',class: "item-new-btn" %>
-		</div>
+			<div class="field">
+			    <%= f.attachment_field :image,class: "field-field" %>
+			</div>
+			<div class="field">
+				<%= f.text_field :link,class: "field-field",:placeholder => "リンク先URL" %>
+			</div>
+			<div class="field">
+				<%= f.text_area :content,class: "item-new-content field-field",:placeholder => "紹介文（100文字以下）" %>
+			</div>
+			<div class="item-new-btn-line">
+				<%= f.submit '投稿',class: "item-new-btn" %>
+			</div>
 		<% end %>
 	</div>
 </div>

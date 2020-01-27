@@ -1,4 +1,9 @@
 class GenresController < ApplicationController
+    skip_before_action :require_login
+    skip_before_action :require_admin_login
+    before_action :require_admin_already
+
+
   def show
   	@genre=Genre.find(params[:id])
   	@posts=@genre.posts.order("id DESC").page(params[:page]).per(15)
@@ -20,6 +25,7 @@ class GenresController < ApplicationController
   	@genre_ranks = Kaminari.paginate_array(@genre_ranks).page(params[:page]).per(16)
   	@genres=Genre.all
   end
+
   def order
   	@genre=Genre.find(params[:id])
   	@items1=Item.order("id DESC")
@@ -27,4 +33,5 @@ class GenresController < ApplicationController
   	@items = Kaminari.paginate_array(@items).page(params[:page]).per(16)
   	@genres=Genre.all
   end
+
 end

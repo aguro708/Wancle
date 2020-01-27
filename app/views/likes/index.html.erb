@@ -2,47 +2,22 @@
 	<div class="post-padding-top">
 		<% @likes.each do |like| %>
 			<%= link_to post_path(like.post.id),class: "post-link-all" do %>
-				<% if like.post.genre_id==1 %>
-					<div class="post-roop post-color-1">
-				<% elsif like.post.genre_id==2 %>
-					<div class="post-roop post-color-2">
-				<% elsif like.post.genre_id==3 %>
-				    <div class="post-roop post-color-3">
-				<% elsif like.post.genre_id==4 %>
-					<div class="post-roop post-color-4">
-				<% elsif like.post.genre_id==5 %>
-					<div class="post-roop post-color-5">
-				<% elsif like.post.genre_id==6 %>
-					<div class="post-roop post-color-6">
-				<% elsif like.post.genre_id==7 %>
-				    <div class="post-roop post-color-7">
-				<% elsif like.post.genre_id==8 %>
-					<div class="post-roop post-color-8">
-				<% elsif like.post.genre_id==9 %>
-					<div class="post-roop post-color-9">
-				<% elsif like.post.genre_id==10 %>
-				    <div class="post-roop post-color-10">
-				<% elsif like.post.genre_id==11 %>
-					<div class="post-roop post-color-11">
-				<% else %>
-					<div class="post-roop post-color-12">
-				<% end %>
-						<p class="post-user-name">
-							<%= link_to user_path(like.post.user.id) do %>
-								<%= attachment_image_tag like.post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
-							<% end %>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<%= link_to like.post.user.name, user_path(like.post.user.id) %>
+			    <div class="post-roop">
+					<div class="post-user-name">
+		    		   <%= link_to user_path(like.post.user.id) do %>
+			    		   <%= attachment_image_tag like.post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
+			    		   <%= link_to like.post.user.name, user_path(like.post.user.id),class: "post-user-name-link" %>
+		    		   <% end %>
+		    		</div>
+					<%= link_to post_path(like.post.id) do %>
+						<p class="post-content">
+							<%= like.post.content %>
 						</p>
-						<%= link_to post_path(like.post.id) do %>
-						    <p class="post-content">
-								<%= like.post.content %>
-							</p>
-							<div id="like-<%= like.post.id %>">
-								<%= render partial: "likes/like", locals: { post: like.post } %>
-							</div>
-						<% end %>
-					</div>
+						<div id="like-<%= like.post.id %>">
+							<%= render partial: "likes/like", locals: { post: like.post } %>
+						</div>
+					<% end %>
+				</div>
 			<% end %>
 		<% end %>
 		<div class="paginate">

@@ -1,2 +1,0 @@
-class Thema < ApplicationRecord
-end

@@ -1,0 +1,40 @@
+<div class="body">
+	<% @users.each do |user| %>
+		<div class="profile-content profile-content-follow">
+			<div class="profile-left-follow">
+				<div class="profile-image profile-image-follow">
+					<%= link_to user_path(user.id) do %>
+					   <%= attachment_image_tag user, :profile_image,fallback: "no_image.jpg", size:"55x55" %>
+					<% end %>
+				</div>
+				<div class="profile-follow">
+					<div><%= link_to user.name,user_path(user.id) %></div>
+					<div class="profile-oldgender-follow">
+						<%= user.old %>歳&nbsp;&nbsp;&nbsp;<%= user.gender %>性&nbsp;&nbsp;&nbsp;
+						<% if user.writer == "writer" %>
+						    <span class="profile-writer"><%= user.writer %></span>
+						<% else %>
+						    <span class="profile-user"><%= user.writer %></span>
+						<% end %>
+					</div>
+				</div>
+				<div class="follow-floatright">
+					<div id="follow_form_<%= user.id %>_1">
+						<%= render partial: 'relationships/follow_form',locals: { user: user} %>
+					</div>
+				</div>
+			</div>
+			<div class="introduction-follow">
+				<%= user.introduction %>
+			</div>
+			<div class="follow-floatright-sp">
+				<div id="follow_form_<%= user.id %>_2">
+					<%= render partial: 'relationships/follow_form',locals: { user: user} %>
+				</div>
+			</div>
+			<div class="paginate">
+				<%= paginate @users %>
+			</div>
+		</div>
+	<% end %>
+</div>

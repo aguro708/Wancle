@@ -1,0 +1,45 @@
+<div class="body">
+	<div class="genre-link1">
+		<div class="genre-link1-title">ジャンルから探す</div>
+		<% @genres.each do |genre| %>
+			<label class="genre-link">
+				<%= link_to admins_genre_path(genre.id) do %>
+					<span>#</span>
+					<span class="genre-genre">
+						<%= genre.genre %>
+					</span>
+				<% end %>
+			</label>
+		<% end %>
+	</div>
+	<div class="post-padding-top">
+		<div class="genre-genre-title-2">新着順</div>
+		<%= link_to "人気順",admin_posts_likes_path %>
+		<% @posts.each do |post| %>
+		    <div class="post-roop">
+		    	<div class="post-user-name">
+		    		<%= link_to admins_user_path(post.user.id) do %>
+		    		   <%= attachment_image_tag post.user, :profile_image,fallback: "no_image.jpg", size:"50x50" %>
+		    		   <%= link_to post.user.name, admins_user_path(post.user.id),class: "post-user-name-link" %>
+		    		<% end %>
+		    	</div>
+		    	<%= link_to admins_post_path(post.id) do %>
+			    	<div class="post-content">
+			    		<%= post.content %>
+			    	</div>
+			    	<div class="post-datetime">
+			    		<span class="pink"><i class="far fa-heart"></i></span>
+			    		<%= post.likes.count %>&nbsp;&nbsp;&nbsp;&nbsp;
+			    		<%= post.created_at.to_s(:datetime_jp) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			    		<%= link_to "編集",edit_admins_post_path(post.id) %>
+			    		｜
+			    		<%= link_to "削除",admins_post_path(post.id),method: :delete %>
+			    	</div>
+		    	<% end %>
+		    </div>
+		<% end %>
+		<div class="paginate">
+    		<%= paginate @posts %>
+        </div>
+	</div>
+</div>

@@ -1,4 +1,9 @@
 class PostsController < ApplicationController
+  skip_before_action :require_login, only: [:index,:show,:like,:search]
+  skip_before_action :require_admin_login
+  before_action :require_admin_already, only: [:index,:show,:like,:search]
+  before_action :correct_post,only: [:edit]
+
   def index
     @posts=Post.order("id DESC").page(params[:page]).per(15)
     @genres=Genre.all
@@ -28,6 +33,10 @@ class PostsController < ApplicationController
   def edit
     @post=Post.find(params[:id])
     @genres=Genre.all
+    @user=User.find(params[:user_id])
+    unless @user==@post.user
+      redirect_to posts_path
+    end
   end
 
   def update

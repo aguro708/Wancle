@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+	skip_before_action :require_admin_login
+
 	def index
 		@likes=Like.where(user_id: current_user.id).order("id DESC").page(params[:page]).per(15)
 	end

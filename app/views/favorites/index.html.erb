@@ -1,24 +1,24 @@
 <div class="body">
 	<div class="item-content">
 		<% @favorites.each do |favorite| %>
-		<div class="item-index">
-			<a href="<%= favorite.item.link %>">
-				<%= attachment_image_tag favorite.item, :image,fallback: "no_image.jpg", size:"228x160" %>
-				<div class="item-content-2">
+			<div class="item-index">
+				<a href="<%= favorite.item.link %>">
+					<%= attachment_image_tag favorite.item, :image,fallback: "no_image.jpg", size:"228x160" %>
+					<div class="item-content-2">
+						<span>
+							<%= favorite.item.content.truncate(49) %>
+						</span>
+					</div>
+				</a>
+				<div class="user-name">
 					<span>
-						<%= favorite.item.content.truncate(49) %>
+						<strong><%= link_to favorite.item.user.name,user_path(favorite.item.user.id) %></strong>
 					</span>
 				</div>
-			</a>
-			<div class="user-name">
-				<span>
-					<strong><%= link_to favorite.item.user.name,user_path(favorite.item.user.id) %></strong>
-				</span>
+				<div id="favorite-<%= favorite.item.id %>">
+					<%= render partial: "favorites/favorite", locals: { item: favorite.item } %>
+				</div>
 			</div>
-			<div id="favorite-<%= favorite.item.id %>">
-				<%= render partial: "favorites/favorite", locals: { item: favorite.item } %>
-			</div>
-		</div>
 		<% end %>
 		<div class="paginate">
     		<%= paginate @favorites %>

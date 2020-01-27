@@ -1,4 +1,10 @@
 class ItemsController < ApplicationController
+      skip_before_action :require_login, only: [:index,:favorite]
+      skip_before_action :require_admin_login
+      before_action :require_admin_already, only: [:index,:favorite]
+      before_action :correct_item,only: [:edit]
+
+
 	def index
 		@items=Item.order("id DESC").page(params[:page]).per(16)
 		@genres=Genre.all
@@ -24,6 +30,10 @@ class ItemsController < ApplicationController
 	def edit
 		@item=Item.find(params[:id])
 		@post=Post.find(params[:post_id])
+		@user=User.find(params[:user_id])
+		unless @user==@item.user
+			redirect_to items_path
+		end
 	end
 
 	def update
