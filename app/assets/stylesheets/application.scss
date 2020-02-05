@@ -196,8 +196,8 @@ margin-left:10px;
 }
 
 .search-hide-button{
-	background-color:white;
-	border:none;
+background-color:white;
+border:none;
 }
 
 .float{
@@ -508,6 +508,10 @@ width:100%;
 border-bottom:solid 1px #f2f2f2;
 border-right:solid 1px #f2f2f2;
 padding:20px;
+}
+
+.article-up{
+margin-left:100px;
 }
 
 .post-user-name{
@@ -1018,13 +1022,16 @@ width:720px;
 width:700px;
 margin:0 auto;
 }
+
 .post-padding-top{
 width:680px;
 }
+
 .post-new,.item-new{
 width:640px;
 margin:0 auto;
 }
+
 .post-new-inset .field{
 text-align:center;
 }
@@ -1056,6 +1063,10 @@ display:none;
 width:80%;
 margin:0 auto;
 margin-bottom:15px;
+}
+
+.article-up{
+	margin-left:20px;
 }
 
 .profile-content{
@@ -1107,11 +1118,11 @@ text-align:center;
 }
 
 .sign-up,.sign-in{
-	width:600px;
+width:600px;
 }
 
 .sign-in-title,.sign-up-title{
-	text-align:center;
+text-align:center;
 }
 
 }
@@ -1219,17 +1230,19 @@ text-align:center;
 display:block;
 text-align:center;
 margin-top:8px;
-margin-left:100px;
+margin-left:0px;
 }
 
 .post-user-name a{
 display:block;
 text-align:center;
 }
+
 .post-new,.item-new{
 width:400px;
 margin:0 auto;
 }
+
 .post-new-inset{
 padding:32px 30px;
 }
@@ -1265,6 +1278,7 @@ font-size: 22px;
 font-weight: bold;
 text-align:center;
 }
+
 .post-new-content{
 height:180px;
 }
@@ -1297,6 +1311,7 @@ width:80%;
 margin:0 auto;
 margin-bottom:15px;
 }
+
 .profile-content{
 padding:20px 0;
 margin:0 auto;
@@ -1513,15 +1528,15 @@ line-height:1.5;
 }
 
 .sign-up,.sign-in{
-	width:400px;
+width:400px;
 }
 
 .sign-up-inset,.sign-in-inset{
-	padding:15px 30px;
+padding:15px 30px;
 }
 
 .sign-in-title,.sign-up-title{
-	text-align:center;
+text-align:center;
 }
 
 }
@@ -1608,7 +1623,9 @@ width:300px;
 display:block;
 text-align:center;
 margin-top:8px;
+margin-left:0px;
 }
+
 .post-user-name{
 text-align:center;
 }
@@ -1632,20 +1649,25 @@ text-align:center;
 .item-content{
 margin-top:0px;
 }
+
 .post-user-name a{
 display:block;
 text-align:center;
 }
+
 .post-user-name-link{
 margin-left:0px;
 }
+
 .post-new,.item-new{
 width:300px;
 margin:0 auto;
 }
+
 .post-new-inset{
 padding:22px 20px 25px;
 }
+
 .post-new-inset .field{
 text-align:center;
 }
@@ -1661,12 +1683,15 @@ font-size: 22px;
 font-weight: bold;
 text-align:center;
 }
+
 .post-new-title{
 display:none;
 }
+
 .item-new-title{
 display:none;
 }
+
 .item-new-title2{
 display:block;
 margin-bottom: 20px;
@@ -1674,6 +1699,7 @@ font-size: 22px;
 font-weight: bold;
 text-align:center;
 }
+
 .item-new-inset{
 padding:32px 28px;
 }
@@ -1922,15 +1948,15 @@ line-height:1.5;
 }
 
 .sign-up,.sign-in{
-	width:300px;
+width:300px;
 }
 
 .sign-up-inset,.sign-in-inset{
-	padding:20px 28px;
+padding:20px 28px;
 }
 
 .sign-in-title,.sign-up-title{
-	text-align:center;
+text-align:center;
 }
 }
 
