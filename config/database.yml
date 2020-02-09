@@ -18,6 +18,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   database: db/test.sqlite3
+  adapter: sqlite3
 
 production:
   database: wancledb
