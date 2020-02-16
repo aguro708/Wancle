@@ -4,9 +4,9 @@ class TopsController < ApplicationController
 	before_action :require_user_already
 	before_action :require_admin_already
 
-  def home
-  end
+	def home
+	end
 
-  def about
-  end
+	def about
+	end
 end

@@ -1,5 +1,6 @@
 class Admins::GenresController < ApplicationController
-	skip_before_action :require_login
+  skip_before_action :require_login
+
   def show
   	@genre=Genre.find(params[:id])
   	@posts=@genre.posts.order("id DESC").page(params[:page]).per(15)
@@ -65,8 +66,8 @@ class Admins::GenresController < ApplicationController
   end
 
   private
-    def genre_params
-		params.require(:genre).permit(:genre)
-	end
+  def genre_params
+    params.require(:genre).permit(:genre)
+  end
 
 end

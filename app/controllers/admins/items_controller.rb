@@ -1,5 +1,6 @@
 class Admins::ItemsController < ApplicationController
 	skip_before_action :require_login
+
 	def index
 		@items=Item.order("id DESC").page(params[:page]).per(16)
 		@genres=Genre.all

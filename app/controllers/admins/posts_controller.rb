@@ -1,5 +1,6 @@
 class Admins::PostsController < ApplicationController
 	skip_before_action :require_login
+
 	def index
 	    @posts=Post.order("id DESC").page(params[:page]).per(15)
 	    @genres=Genre.all

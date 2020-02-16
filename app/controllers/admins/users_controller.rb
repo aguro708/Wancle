@@ -1,5 +1,5 @@
 class Admins::UsersController < ApplicationController
-	    skip_before_action :require_login
+	skip_before_action :require_login
 
 	def index
 		@users=User.page(params[:page]).per(50)

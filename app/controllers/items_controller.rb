@@ -1,9 +1,8 @@
 class ItemsController < ApplicationController
-      skip_before_action :require_login, only: [:index,:favorite]
-      skip_before_action :require_admin_login
-      before_action :require_admin_already, only: [:index,:favorite]
-      before_action :correct_item,only: [:edit]
-
+	skip_before_action :require_login, only: [:index,:favorite]
+	skip_before_action :require_admin_login
+	before_action :require_admin_already, only: [:index,:favorite]
+	before_action :correct_item,only: [:edit]
 
 	def index
 		@items=Item.order("id DESC").page(params[:page]).per(16)
