@@ -67,7 +67,7 @@ gem 'rails-i18n'
 gem 'bootstrap-sass','~> 3.4.1'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
-gem "kaminari",'~> 1.1.1'
+gem "kaminari",'~> 1.2.1'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'rspec-rails', '~> 3.7.2'
